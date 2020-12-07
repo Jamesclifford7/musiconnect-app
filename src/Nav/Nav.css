@@ -1,0 +1,45 @@
+nav {
+    /* border: solid;
+    border-color: green; */
+    width: 20%;
+    text-align: center; 
+    float: right; 
+    display: inline; 
+    margin-right: 50px;
+}
+
+nav ul {
+    list-style-type: none;
+    display: inline; 
+    /* float: right; */
+}
+
+nav ul li {
+    margin: 10px; 
+    padding: 20px;
+    /* border: solid; */
+    display: inline;
+    text-align: center;
+}
+
+nav ul li img {
+    margin: 0 auto;
+    border-radius: 50%; 
+    border: solid;
+    border-width: 2px;
+    width: 15px;
+    height: 15px; 
+}
+
+nav .dropdown-container {
+    border: solid;
+    position: absolute;
+    margin-top: 8px;
+    margin-left: 155px;
+    background-color: white;
+}
+
+nav .dropdown-container Link {
+    border: solid;
+    display: block;
+}

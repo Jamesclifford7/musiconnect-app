@@ -1,0 +1,209 @@
+/* HEADER */
+
+header {
+    /* margin: 20px; */
+    padding: 20px;
+    border-bottom: solid;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: white; 
+} 
+
+header h2 {
+    display: inline; 
+    /* border: solid;
+    border-color: red; */
+    margin: 10px;
+    padding: 40px;
+}
+
+nav {
+    /* border: solid;
+    border-color: green; */
+    width: 20%;
+    text-align: center; 
+    float: right; 
+    display: inline; 
+    margin-right: 50px;
+    padding: 5px;
+}
+
+nav ul {
+    list-style-type: none;
+    display: inline; 
+    /* border: solid;
+    border-color: pink; */
+    /* margin: 0 auto; */
+    /* float: right; */
+}
+
+nav ul li {
+    margin: 10px;
+    /* border: solid; */
+    display: inline;
+}
+
+/* MAIN SECTIONS */
+
+main {
+    text-align: center;
+    /* margin: 0 auto; */
+    margin: 70px 0 0 0; 
+}
+
+.landing {
+    margin: 0 auto;
+    padding: 30px;
+    background-color: blanchedalmond;
+}
+
+.landing p {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.info .flex-container {
+    height: 300px;
+    padding: 20px;
+    /* border-color: green; */
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: white;
+}
+
+.info .flex-item {
+    border: solid;
+    width: 30%;
+    background-color: blanchedalmond;
+}
+
+.info .flex-item p {
+    margin: 40px;
+}  
+
+.signup .flex-container {
+    height: 250px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.signup .flex-item-left, .signup .flex-item-right {
+    width: 100%;
+    position: relative; 
+    text-align: center;
+    background-color: blanchedalmond;
+}
+
+.signup .content, .signup h2 {
+    /* height: 100%; */
+    margin: 0;
+    position: absolute; 
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); 
+}
+
+.signup .flex-item-right {
+    border-left: solid;
+}
+
+/* FOOTER */
+
+footer {
+    height: 30px;
+}
+
+footer span {
+    display: inline-block; 
+    padding: 10px;
+    margin-left: 5px;
+}
+
+/* MEDIA QUERIES */
+
+@media all and (max-width: 600px) {
+    body {
+        margin: 0 auto;
+        text-align: center;
+    } 
+
+    header { 
+        width: 89%;
+        display: block;
+        text-align: center; 
+        height: 90px;
+        margin: 0 auto;
+        position: static;
+    }
+
+    nav {
+        /* display: block; */
+        /* border: solid; 
+        border-color: blue; */
+        width: 100%;
+        margin: 0 auto; 
+        
+    }
+
+    nav ul {
+        display: block;
+        /* border: solid; 
+        border-color: green; */
+        width: 80%;
+        text-align: center; 
+        margin: 0 auto; 
+    }
+
+    nav ul li {
+        display: block;
+        /* margin: 0 50px 0 0; */ 
+        margin: 0 auto; 
+        /*width: 20%;
+        border: solid;
+        border-color: pink;*/
+        padding: 2px;
+    }
+    
+    main {
+        margin-top: -10px;
+    } 
+
+    .landing {
+        padding: 20px;
+    }
+
+    .landing h1 {
+        margin: 0 0 10px 0; 
+        padding: 5px;
+    }
+    
+    .info {
+        width: 100%;
+        margin: 0 auto;
+    } 
+
+    .info .flex-container {
+        flex-direction: column; 
+        justify-content: space-around;
+        align-items: center;
+        height: 100%;
+        width: 90%;
+        margin: 0 auto;
+        padding: 10px; 
+    }
+
+    .info .flex-container .flex-item {
+        width: 100%;
+        margin: 5px;
+    }
+    
+    .signup .flex-container {
+        margin: 0 auto;
+        flex-direction: column;
+        justify-content: space-evenly;
+        background-color: blanchedalmond;
+    } 
+}

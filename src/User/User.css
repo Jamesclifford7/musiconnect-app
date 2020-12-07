@@ -1,0 +1,167 @@
+/* HEADER */
+
+header {
+    /* margin: 20px; */
+    padding: 20px;
+    border-bottom: solid;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: white; 
+} 
+
+header h2 {
+    display: inline; 
+    /* border: solid;
+    border-color: red; */
+    margin: 10px;
+    padding: 40px;
+}
+
+nav {
+    /* border: solid;
+    border-color: green; */
+    width: 20%;
+    text-align: center; 
+    float: right; 
+    display: inline; 
+    margin-right: 50px;
+    padding: 5px;
+}
+
+nav ul {
+    list-style-type: none;
+    display: inline; 
+    /* border: solid;
+    border-color: pink; */
+    /* margin: 0 auto; */
+    /* float: right; */
+}
+
+nav ul li {
+    margin: 10px;
+    /* border: solid; */
+    display: inline;
+}
+
+nav ul li img {
+    margin: 0 auto;
+    border-radius: 50%; 
+    border: solid;
+    border-width: 2px;
+    width: 15px;
+    height: 15px; 
+}
+
+/* MAIN SECTIONS */
+
+main {
+    text-align: center;
+    /* margin: 0 auto; */
+    margin: 100px 0 0 0; 
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 90%;
+    justify-content: center;
+    background-color: blanchedalmond;
+}
+
+.profile-header img {
+    border-radius: 50%;
+    height: 150px;
+    border: solid;
+}
+
+.profile-header {
+    border-bottom: solid;
+    text-align: left;
+    padding: 40px;
+}
+
+.profile-header a {
+    float: right;
+    padding-left: 18px;
+}
+
+.profile-header h4, .profile-header p {
+    width: 40%;
+}
+
+.profile-container .profile-info {
+    text-align: left;
+    margin-left: 40px;
+}
+
+/* FOOTER */
+
+footer {
+    height: 30px;
+}
+
+footer span {
+    display: inline-block;
+    padding: 10px;
+    margin-left: 5px;
+}
+
+/* MEDIA QUERY */
+
+@media all and (max-width: 600px) {
+    body {
+        margin: 0 auto;
+        text-align: center;
+    } 
+
+    header { 
+        width: 89%;
+        display: block;
+        text-align: center; 
+        height: 90px;
+        margin: 0 auto;
+        position: static;
+    }
+
+    nav {
+        width: 100%;
+        margin: 0 auto; 
+    }
+
+    nav ul {
+        display: block;
+        width: 80%;
+        text-align: center; 
+        margin: 0 auto; 
+    }
+
+    nav ul li {
+        display: block;
+        margin: 0 auto; 
+        padding: 2px;
+    }
+    
+    main {
+        margin-top: 20px;
+    }  
+
+    .header-img-socials {
+        display: block;
+        text-align: center;
+    }
+
+    .header-img-socials img {
+        display: block;
+        margin: 0 auto;
+        border: solid;
+    }
+
+    .header-img-socials a {
+        margin-top: 30px;
+        display: inline-block;
+        padding: 10px;
+        float: none;
+    }
+}

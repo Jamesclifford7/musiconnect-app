@@ -1,0 +1,65 @@
+import React from 'react'
+import './Landing.css'
+import { Link } from 'react-router-dom'
+
+function Landing() {
+    return (
+        <>
+            <header>
+                <Link to='/'><h2>Musiconnect</h2></Link>
+                <nav>
+                    <ul>
+                        <Link to='/about'><li>About</li></Link>
+                        <Link to='/login'><li>Login</li></Link>
+                        {/* <li><img src="images/icon-user-default.png" alt="avatar" width="25" height="25" /></li> */}
+                    </ul>
+                </nav>
+            </header>
+            <main>
+                <section className="landing">
+                    <h1>Connect with other musicians in your city</h1>
+                    <p>Lennon needed McCartney, and Michael Jackson needed Quincy Jones. 
+                        Whether you are looking to collaborate on the next <i>Thriller</i> or simply get together and jam, Musiconnect offers the premier platform for meeting other musicians.</p>
+                </section>
+        
+                <section className="info">
+                    <div className="flex-container">
+                        <div className="flex-item">
+                            <h2>Create a profile</h2>
+                            <p>Are you a singer? Producer? Drummer? Fill out your profile so others can find you.</p>
+                        </div>
+                        <div className="flex-item">
+                            <h2>Search</h2>
+                            <p>Find like-minded musicians, for either playing big stages or informal jam sessions on the weekends.</p>
+                        </div>
+                        <div className="flex-item">
+                            <h2>Connect</h2>
+                            <p>Turn it up to 11!</p>
+                        </div>    
+                    </div>
+                </section>
+
+                <section className="signup">
+                    <div className="flex-container">
+                        <div className="flex-item-left">
+                            <h2>Sign up</h2>
+                        </div>
+                        <div className="flex-item-right">
+                            <div className="content">
+                                <p>Your next show is right around the corner:</p>
+                                <button><Link to='signup'>Sign Up</Link></button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            
+            </main>
+            <footer>
+                <span>	&#169; Musiconnect 2020</span>
+            </footer>
+            
+        </>
+    )
+}
+
+export default Landing
