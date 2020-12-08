@@ -20,19 +20,39 @@ function Editprofile(props) {
                         <button>Change Profile Image</button>
                         <form onSubmit={event => props.handleUpdateProfile(event)}>
                             <label htmlFor="username">Username:</label>
-                            <input id="username" type="text" /><br/>
+                            {
+                                (props.user.username)
+                                ? <> <input id="username" type="text" /><br/></>
+                                : <> <input id="username" type="text" required/><br/></>
+                            }
                             <label htmlFor="password">New Password:</label>
                             <input type="password" id="password" /><br/>
                             <label htmlFor="name">Name:</label>
-                            <input id="name" type="text" /><br/>
+                            {
+                                (props.user.name)
+                                ? <> <input id="name" type="text" /><br/></>
+                                : <> <input id="name" type="text" required /><br/></>
+                            }
                             <label htmlFor="city">City:</label>
-                            <select id="city">
-                                <option value="1">Los Angeles</option>
-                                <option value="2">New York</option>
-                                <option value="3">Nashville</option>
-                                <option value="4">Austin</option>
-                                <option value="5">Chicago</option>
-                            </select><br/><br/>
+                            {
+                                (props.user.city)
+                                ? <><select id="city">
+                                    <option value="" disabled selected>Select</option>
+                                    <option value="1">Los Angeles</option>
+                                    <option value="2">New York</option>
+                                    <option value="3">Nashville</option>
+                                    <option value="4">Austin</option>
+                                    <option value="5">Chicago</option>
+                                </select><br/><br/></>
+                                : <><select id="city" required>
+                                    <option value="" disabled selected>Select</option>
+                                    <option value="1">Los Angeles</option>
+                                    <option value="2">New York</option>
+                                    <option value="3">Nashville</option>
+                                    <option value="4">Austin</option>
+                                    <option value="5">Chicago</option>
+                                </select><br/><br/></>
+                            }
                             <span>I am a:</span><br/>
                             <div>
                                 <input type="radio" id="instrument" value="1" name="instrument" />

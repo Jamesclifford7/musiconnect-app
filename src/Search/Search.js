@@ -3,9 +3,11 @@ import './Search.css'
 import avatar from '../Images/icon-user-default.png' 
 import { Link } from 'react-router-dom'
 import Nav from '../Nav/Nav'
+import Searchresults from '../SearchResults/Searchresults'
 
 class Search extends React.Component {
     render() {
+        console.log(this.props.searchResults)
         return (
             <>
             <header>
@@ -39,22 +41,6 @@ class Search extends React.Component {
                                 </select><br/><br/>
                             <button type="submit">Search</button>
                         </form>
-                    </div>
-                    <div className="search-results-container">
-                            {
-                                this.props.searchResults.map((result, id) => {
-                                    if(!result) {
-                                        alert('no results for this search') 
-                                    } else {
-                                        return <div className="result" key={id}>
-                                                    <img src={avatar} alt="user" />
-                                                    <Link to={`/user/${result.id}`}><h2>{result.username}</h2></Link>
-                                                    <p>{result.name}</p>
-                                                    <p>{result.instrument}</p>
-                                                </div>
-                                    }
-                                })
-                                } 
                     </div>
                 </div>
             </main>

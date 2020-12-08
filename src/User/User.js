@@ -12,7 +12,8 @@ function User(props) {
                     if (user.id === parseInt(props.match.params.id)) {
                         return <>
                         <header>
-                        <Link to='/search'><h2>Musiconnect</h2></Link>
+                        {/* <Link to='/search'><h2>Musiconnect</h2></Link> */}
+                        <button onClick={event => props.handleClearSearch(event)}><h2>Musiconnect</h2></button>
                         <Nav user={props.user} handleClearSearch={props.handleClearSearch} handleLogout={props.handleLogout} />
                         
                     </header>

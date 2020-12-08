@@ -16,7 +16,7 @@ import Users from './STORE/Users'
 class App extends React.Component {
   constructor() {
     super()
-    this.state={
+    this.state = {
       user: {},
       users: Users, 
       searchResults: []
@@ -35,31 +35,6 @@ class App extends React.Component {
         this.props.history.push('/search')
       }
     })
-    /*
-    if (username === 'jamesclifford7' && password === 'Password1') {
-      this.setState({
-        user: {
-        id: 1,
-        email: 'jamesclifforddev@gmail.com',
-        name: 'James Clifford',
-        username: 'jamesclifford7', 
-        password: 'Password1', 
-        instrument: 1, 
-        city: 1, 
-        instagram: '@Jamesclifford', 
-        facebook: '', 
-        twitter: '', 
-        soundcloud: 'www.soundcloud.com', 
-        bandcamp: '', 
-        spotify: '', 
-        bio: 'multi-instrumentalist looking to connect with others!'
-        }
-      })
-      this.props.history.push('/search')
-    } else {
-      alert('Oops! username or password do not exist')
-    }
-    */
   }
 
   handleSearch = (event) => {
@@ -69,15 +44,12 @@ class App extends React.Component {
     const results = this.state.users.filter(user => {
       if (user.instrument === inst && user.city === city) {
         return user
-      } /* else {
-        this.props.history.push('/noresults')
-      } */
+      } 
     })
-    // this.state.searchResults = [];
     this.setState({
       searchResults: results
-    })
-    // this.props.history.push('/results')
+    }) 
+    this.props.history.push('/results')
   }
 
   backButton = (event) => {
@@ -234,11 +206,6 @@ class App extends React.Component {
     const user = this.state.user;
     return (
       <div className="app">
-        {/*
-        <Route
-        exact path='/'
-        render={(props) => <Landing {...props}/>}
-        /> */}
         <Route
         exact path='/'
         component={Landing}
@@ -273,9 +240,14 @@ class App extends React.Component {
         />
         <Route 
         path='/results'
-        render={(props) => {
-          <Searchresults {...props} handleSearch={this.handleSearch} />
-        }}
+        render={(props) => (
+          <Searchresults {...props} 
+          handleSearch={this.handleSearch} 
+          handleClearSearch={this.handleClearSearch}
+          handleLogout={this.handleLogout}
+          searchResults={searchResults}
+          user={user}/>
+        )}
         />
         <Route
         path='/user/:id'
