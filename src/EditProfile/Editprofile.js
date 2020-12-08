@@ -8,26 +8,20 @@ function Editprofile(props) {
     return (
         <>
             <header>
-                <Link to='/search'><h2>Musiconnect</h2></Link>
-                <Nav user={props.user} />
-                {/*
-                <nav>
-                    <ul>
-                        <li>About</li>
-                        <li>Login</li>
-                    </ul>
-                </nav>
-                */    }   
+                { /* <Link to='/search'><h2>Musiconnect</h2></Link> */}
+                <button onClick={event => props.handleClearSearch(event)}><h2>Musiconnect</h2></button>
+                <Nav user={props.user} handleLogout={props.handleLogout} handleClearSearch={props.handleClearSearch} />
             </header>
             <main>
                 <section className="profile">
                     <div className="form-container">
+                        <h1>Edit Your Profile</h1>
                         <img src={avatar} alt="avatar" /><br/>
                         <button>Change Profile Image</button>
                         <form onSubmit={event => props.handleUpdateProfile(event)}>
                             <label htmlFor="username">Username:</label>
                             <input id="username" type="text" /><br/>
-                            <label htmlFor="password">Password:</label>
+                            <label htmlFor="password">New Password:</label>
                             <input type="password" id="password" /><br/>
                             <label htmlFor="name">Name:</label>
                             <input id="name" type="text" /><br/>
@@ -40,18 +34,20 @@ function Editprofile(props) {
                                 <option value="5">Chicago</option>
                             </select><br/><br/>
                             <span>I am a:</span><br/>
-                            <input type="radio" id="instrument" value="1" />
-                            <label htmlFor="instrument">Guitarist</label><br/>
-                            <input type="radio" id="instrument" value="2" />
-                            <label htmlFor="instrument" >Bassist</label><br/>
-                            <input type="radio" id="instrument" value="3" />
-                            <label htmlFor="instrument">Drummer</label><br/>
-                            <input type="radio" id="instrument" value="4" />
-                            <label htmlFor="instrument" >Pianist/keyboards</label><br/>
-                            <input type="radio" id="instrument" value="5" />
-                            <label htmlFor="instrument" >Singer</label><br/>
-                            <input type="radio" id="instrument" value="6" />
-                            <label htmlFor="instrument" >Producer</label><br/><br/>
+                            <div>
+                                <input type="radio" id="instrument" value="1" name="instrument" />
+                                <label htmlFor="instrument">Guitarist</label><br/>
+                                <input type="radio" id="instrument" value="2" name="instrument" />
+                                <label htmlFor="instrument" >Bassist</label><br/>
+                                <input type="radio" id="instrument" value="3" name="instrument" />
+                                <label htmlFor="instrument">Drummer</label><br/>
+                                <input type="radio" id="instrument" value="4" name="instrument" />
+                                <label htmlFor="instrument" >Pianist/keyboards</label><br/>
+                                <input type="radio" id="instrument" value="5" name="instrument" />
+                                <label htmlFor="instrument" >Singer</label><br/>
+                                <input type="radio" id="instrument" value="6" name="instrument" />
+                                <label htmlFor="instrument" >Producer</label><br/><br/>
+                            </div>    
                             <span>Socials:</span><br/>
                             <label htmlFor="instagram">Instagram:</label>
                             <input id="instagram" type="text" /><br/>

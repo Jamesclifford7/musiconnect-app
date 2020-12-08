@@ -20,7 +20,7 @@ class Nav extends React.Component {
 
     render() {
         // console.log(this.props.user)
-        if (this.props.user.length === 1) {
+        if (this.props.user.email) {
             return <nav>
                         <ul>
                             <Link to='/about'><li>About</li></Link>
@@ -31,7 +31,7 @@ class Nav extends React.Component {
                             ? <div className="dropdown-container">
                                 <div className="dropdown">
                                     <Link to='/profile'>Your Profile</Link><br/>
-                                    <Link to='/search'>Search</Link><br/>
+                                    <button onClick={event => this.props.handleClearSearch(event)}>Search</button><br/>
                                     <button onClick={event => this.props.handleLogout(event)}>Logout</button>
                                 </div>    
                             </div>
@@ -53,27 +53,3 @@ class Nav extends React.Component {
 }
 
 export default Nav
-
-/*
-
-<nav>
-                    <ul>
-                        <Link to='/about'><li>About</li></Link>
-                        
-                        {/* <Link to='/profile'><li><img src={avatar} alt="avatar" /></li></Link>
-                        <li><button onClick={event => this.toggleMenu(event)}><img src={avatar} alt="avatar" /></button></li>
-                    </ul>
-                    {
-                        this.state.showMenu
-                        ? <div className="dropdown-container">
-                            <div className="dropdown">
-                                <Link to='/profile'>Your Profile</Link><br/>
-                                <Link to='/search'>Search</Link>
-                            </div>    
-                        </div>
-                        : null
-                    }
-        
-                </nav>
-
-*/

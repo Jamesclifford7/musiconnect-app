@@ -3,7 +3,7 @@ const users = [
         id: 2,
         email: 'davidbowie@gmail.com',
         name: 'David Bowie',
-        username: 'starman7', 
+        username: 'ziggystardust7', 
         password: 'Heroes31', 
         instrument: 5, 
         city: 2, 

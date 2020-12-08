@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Route, withRouter, Link } from 'react-router-dom'
+import { Route, withRouter } from 'react-router-dom'
 import Landing from './LandingPage/Landing'
 import Signup from './Signup/Signup'
 import Editprofile from './EditProfile/Editprofile'
@@ -12,13 +12,12 @@ import About from './About/About'
 import Noresults from './NoResults/Noresults'
 import Login from './Login/Login'
 import Users from './STORE/Users'
-import Nav from './Nav/Nav'
 
 class App extends React.Component {
   constructor() {
     super()
     this.state={
-      user: [],
+      user: {},
       users: Users, 
       searchResults: []
     }
@@ -28,10 +27,18 @@ class App extends React.Component {
     event.preventDefault(); 
     const username = String(event.target.username.value);
     const password = String(event.target.password.value);
-    // console.log(username, password) 
+    this.state.users.map(user => {
+      if (username === user.username && password === user.password) {
+        this.setState({
+          user: user
+        })
+        this.props.history.push('/search')
+      }
+    })
+    /*
     if (username === 'jamesclifford7' && password === 'Password1') {
       this.setState({
-        user: [...this.state.user, {
+        user: {
         id: 1,
         email: 'jamesclifforddev@gmail.com',
         name: 'James Clifford',
@@ -46,12 +53,13 @@ class App extends React.Component {
         bandcamp: '', 
         spotify: '', 
         bio: 'multi-instrumentalist looking to connect with others!'
-        }]
+        }
       })
       this.props.history.push('/search')
     } else {
       alert('Oops! username or password do not exist')
     }
+    */
   }
 
   handleSearch = (event) => {
@@ -79,8 +87,6 @@ class App extends React.Component {
 
   handleUpdateProfile = (event) => {
     event.preventDefault();
-    /* username, password, name, city, instrument, instagram, facebook, twitter, soundcloud
-    bandcamp, spotify, bio  */
     const newUsername = event.target.username.value; 
     const newPassword = event.target.password.value; 
     const newName = event.target.name.value; 
@@ -93,27 +99,88 @@ class App extends React.Component {
     const newBandcamp = event.target.bandcamp.value; 
     const newSpotify = event.target.spotify.value; 
     const newBio = event.target.bio.value;
+
     console.log(newInstrument)
-    // this.state.user.splice(0, 1)
-    
+
     const updatedUser = {
-        // id: 1,
-        email: 'jamesclifforddev@gmail.com',
-        name: newName,
-        username: newUsername, 
-        password: newPassword, 
-        instrument: newInstrument, 
-        city: newCity, 
-        instagram: newInstagram, 
-        facebook: newFacebook, 
-        twitter: newTwitter, 
-        soundcloud: newSoundcloud, 
-        bandcamp: newBandcamp, 
-        spotify: newSpotify, 
-        bio: newBio
-    }
+      id: this.state.user.id, 
+      email: this.state.user.email
+    };
+
+    if (!newUsername) {
+      updatedUser.username = this.state.user.username
+    } else {
+      updatedUser.username = newUsername
+    }; 
+
+    if (!newPassword) {
+      updatedUser.password = this.state.user.password
+    } else {
+      updatedUser.password = newPassword
+    }; 
+
+    if (!newName) {
+      updatedUser.name = this.state.user.name
+    } else {
+      updatedUser.name = newName
+    }; 
+
+    if (!newCity) {
+      updatedUser.city = this.state.user.city
+    } else {
+      updatedUser.city = newCity
+    }; 
+
+    if (!newInstrument) {
+      updatedUser.instrument = this.state.user.instrument
+    } else {
+      updatedUser.instrument = newInstrument
+    }; 
+
+    if (!newInstagram) {
+      updatedUser.instagram = this.state.user.instagram
+    } else {
+      updatedUser.instagram = newInstagram
+    }; 
+
+    if (!newFacebook) {
+      updatedUser.facebook = this.state.user.facebook
+    } else {
+      updatedUser.facebook = newFacebook
+    }; 
+
+    if (!newTwitter) {
+      updatedUser.twitter = this.state.user.twitter
+    } else {
+      updatedUser.twitter = newTwitter
+    };
+
+    if (!newSoundcloud) {
+      updatedUser.soundcloud = this.state.user.soundcloud
+    } else {
+      updatedUser.soundcloud = newSoundcloud
+    };
+
+    if (!newBandcamp) {
+      updatedUser.bandcamp = this.state.user.bandcamp
+    } else {
+      updatedUser.bandcamp = newBandcamp
+    };
+
+    if (!newSpotify) {
+      updatedUser.spotify = this.state.user.spotify
+    } else {
+      updatedUser.spotify = newSpotify
+    };
+
+    if (!newBio) {
+      updatedUser.bio = this.state.user.bio
+    } else {
+      updatedUser.bio = newBio
+    };
+
     this.setState({
-      user: [...updatedUser]
+      user: updatedUser
     })
     this.props.history.push('/profile') 
   }
@@ -122,9 +189,8 @@ class App extends React.Component {
     event.preventDefault();
     const email = event.target.email.value; 
     const password = event.target.password.value; 
-    // return console.log(email, password)
     const newUser = {
-      id: '',
+      id: 11,
       email: email,
       name: '',
       username: '', 
@@ -138,16 +204,23 @@ class App extends React.Component {
       bandcamp: '', 
       spotify: '', 
       bio: ''
-    }
+    };
     this.setState({
       user: newUser
-    })
+    });
     this.props.history.push('/editprofile')
+  }
+
+  handleClearSearch = (event) => {
+    event.preventDefault();
+    this.setState({
+      searchResults: []
+    });
+    this.props.history.push('/search')
   }
 
   handleLogout = (event) => {
     event.preventDefault();
-    console.log('handleLogout clicked!');
     this.setState({
       user: []
     })
@@ -155,8 +228,6 @@ class App extends React.Component {
   }
 
   render() {
-
-    console.log(this.state.user) 
 
     const searchResults = this.state.searchResults;
     const users = this.state.users;
@@ -184,7 +255,9 @@ class App extends React.Component {
           <Editprofile {...props} 
           backButton={this.backButton} 
           user={user}
-          handleUpdateProfile={this.handleUpdateProfile}/>
+          handleUpdateProfile={this.handleUpdateProfile}
+          handleLogout={this.handleLogout} 
+          handleClearSearch={this.handleClearSearch} />
         )}
         />
         <Route 
@@ -194,6 +267,7 @@ class App extends React.Component {
           handleSearch={this.handleSearch}
           searchResults={searchResults}
           handleLogout={this.handleLogout} 
+          handleClearSearch={this.handleClearSearch}
           user={user}/>
         )}
         />
@@ -206,19 +280,27 @@ class App extends React.Component {
         <Route
         path='/user/:id'
         render={(props) => (
-          <User {...props} users={users} backButton={this.backButton} user={user} />
+          <User {...props} users={users} 
+          backButton={this.backButton} 
+          user={user} 
+          handleLogout={this.handleLogout} 
+          handleClearSearch={this.handleClearSearch} />
         )}
         />
         <Route 
         path='/profile'
         render={(props) => (
-          <Profile {...props} user={user} />
+          <Profile {...props} user={user} 
+          handleClearSearch={this.handleClearSearch} 
+          handleLogout={this.handleLogout} />
         )}
         />
         <Route 
         path='/about'
         render={(props) => (
-          <About {...props} user={user} />
+          <About {...props} user={user}
+          handleLogout={this.handleLogout} 
+          handleClearSearch={this.handleClearSearch} />
         )}
         />
         <Route 

@@ -10,6 +10,17 @@ header {
     background-color: white; 
 } 
 
+
+header button {
+    border: none; 
+    background-color: inherit; 
+    outline: inherit;
+} 
+
+header button:hover {
+    text-decoration: underline;
+}
+
 header h2 {
     display: inline; 
     margin: 10px;
@@ -21,7 +32,7 @@ nav {
     border-color: green; */
     width: 20%;
     text-align: center; 
-    float: right; 
+    float: right; /* change to flex */
     display: inline; 
     margin-right: 50px;
 }
@@ -71,7 +82,7 @@ main {
 }
 
 main .search-container {
-    margin: 0 auto;
+    /* margin: 0 auto;
     /* margin-top: 70px; */
     width: 90%;
     background-color: blanchedalmond;

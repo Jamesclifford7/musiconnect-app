@@ -49,12 +49,11 @@ nav ul li {
 main {
     background-color: blanchedalmond;
     margin: 70px 0 0 0; 
-    height: 500px;
 }
 
 .login-form {
     text-align: center;
-    height: 400px;
+    height: 500px;
 } 
 
 .login-form h1 {

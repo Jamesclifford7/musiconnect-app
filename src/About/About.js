@@ -9,11 +9,12 @@ function About(props) {
         <>
             <header>
                 {
-                    props.user.length === 1
-                    ? <Link to='/search'><h2>Musiconnect</h2></Link>
+                    props.user.email
+                    ? <button onClick={event => props.handleClearSearch(event)}><h2>Musiconnect</h2></button>
                     : <Link to='/'><h2>Musiconnect</h2></Link>
                 }
-                <Nav user={props.user} />
+                {/* <Link to='/search'><h2>Musiconnect</h2></Link> */}
+                <Nav user={props.user} handleClearSearch={props.handleClearSearch} handleLogout={props.handleLogout} />
             </header>
             
             <main>

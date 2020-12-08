@@ -9,8 +9,9 @@ function Profile(props) {
     return (
         <>
             <header>
-                <Link to='/search'><h2>Musiconnect</h2></Link>
-                <Nav user={props.user}/>
+                { /* <Link to='/search'><h2>Musiconnect</h2></Link> */}
+                <button onClick={event => props.handleClearSearch(event)}><h2>Musiconnect</h2></button>
+                <Nav user={props.user} handleClearSearch={props.handleClearSearch} handleLogout={props.handleLogout} />
             </header>
             <main>
                 <section className="profile">
@@ -22,15 +23,15 @@ function Profile(props) {
                                 <a href="https://www.facebook.com/" className="fa fa-facebook">F</a>
                                 <a href="https://www.instagram.com/" className="fa fa-instagram">I</a>
                             </div>
-                            <h3>Username: {props.user[0].username}</h3>
-                            <p>Name: {props.user[0].name}</p>
-                            <p>City: {props.user[0].city}</p>
+                            <h3>Username: {props.user.username}</h3>
+                            <p>Name: {props.user.name}</p>
+                            <p>City: {props.user.city}</p>
                             <button><Link to='/editprofile'>Edit Profile</Link></button>
                         </div>
                         <div className="profile-info">
-                            <p>Instrument(s): {props.user[0].instrument}</p>
+                            <p>Instrument(s): {props.user.instrument}</p>
                             <p>Music Links:</p>
-                            <p>Bio: {props.user[0].bio}</p>
+                            <p>Bio: {props.user.bio}</p>
                         </div>
                     </div>
                 </section>
