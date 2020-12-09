@@ -6,7 +6,7 @@ import Nav from '../Nav/Nav'
 
 class Searchresults extends React.Component {
     render() {
-        console.log('this is where search results should be')
+        console.log(this.props.searchResults)
         return (
             <>
                 <header>

@@ -31,8 +31,10 @@ class App extends React.Component {
       if (username === user.username && password === user.password) {
         this.setState({
           user: user
-        })
+        });
         this.props.history.push('/search')
+      } else {
+        alert('this user does not exist')
       }
     })
   }
@@ -42,9 +44,15 @@ class App extends React.Component {
     const inst = parseInt(event.target.instrument.value);
     const city = parseInt(event.target.city.value);
     const results = this.state.users.filter(user => {
+      for (let i = 0; i < user.instrument.length; i++) {
+        if (user.instrument[i] === inst && user.city === city) {
+          return user
+        }
+      }
+      /*
       if (user.instrument === inst && user.city === city) {
         return user
-      } 
+      } */
     })
     this.setState({
       searchResults: results
@@ -63,7 +71,8 @@ class App extends React.Component {
     const newPassword = event.target.password.value; 
     const newName = event.target.name.value; 
     const newCity = parseInt(event.target.city.value); 
-    const newInstrument = parseInt(event.target.instrument.value); 
+    // const newInstrument = parseInt(event.target.instrument.value); 
+    // const newInstrument = [parseInt(event.target.guitar.value), parseInt(event.target.bass.value), parseInt(event.target.drums.value), parseInt(event.target.piano.value), parseInt(event.target.singer.value), parseInt(event.target.producer.value)]
     const newInstagram = event.target.instagram.value; 
     const newFacebook = event.target.facebook.value; 
     const newTwitter = event.target.twitter.value; 
@@ -72,11 +81,50 @@ class App extends React.Component {
     const newSpotify = event.target.spotify.value; 
     const newBio = event.target.bio.value;
 
-    console.log(newInstrument)
+    let newInstrument = [];
+    
+    const guitar = event.target.guitar.checked ? parseInt(event.target.guitar.value) : null
+    const bass = event.target.bass.checked ? parseInt(event.target.bass.value) : null
+    const drums = event.target.drums.checked ? parseInt(event.target.drums.value) : null
+    const piano = event.target.piano.checked ? parseInt(event.target.piano.value) : null
+    const singer = event.target.singer.checked ? parseInt(event.target.singer.value) : null
+    const producer = event.target.producer.checked ? parseInt(event.target.producer.value) : null
+    
+    
+    if (guitar) {
+      newInstrument.push(guitar)
+    } 
+
+    if (bass) {
+      newInstrument.push(bass)
+    } 
+
+    if (drums) {
+      newInstrument.push(drums)
+    }
+
+    if (piano) {
+      newInstrument.push(piano)
+    }
+
+    if (singer) {
+      newInstrument.push(singer)
+    }
+
+    if (producer) {
+      newInstrument.push(producer)
+    }
+
+    if (!guitar && !bass && !drums && !piano && !singer && !producer) {
+      newInstrument = [...this.state.user.instrument]
+    }
+    
+    console.log(newInstrument);
 
     const updatedUser = {
       id: this.state.user.id, 
-      email: this.state.user.email
+      email: this.state.user.email, 
+      instrument: newInstrument
     };
 
     if (!newUsername) {
@@ -87,8 +135,10 @@ class App extends React.Component {
 
     if (!newPassword) {
       updatedUser.password = this.state.user.password
-    } else {
+    } else if (newPassword.length > 6 && newPassword.match(/[A-Z]/) && newPassword.match(/\d+/g)) {
       updatedUser.password = newPassword
+    } else {
+      alert('password must be six characters long, include one uppercase letter, and one number')
     }; 
 
     if (!newName) {
@@ -103,11 +153,12 @@ class App extends React.Component {
       updatedUser.city = newCity
     }; 
 
+    /*
     if (!newInstrument) {
       updatedUser.instrument = this.state.user.instrument
     } else {
       updatedUser.instrument = newInstrument
-    }; 
+    };  */
 
     if (!newInstagram) {
       updatedUser.instagram = this.state.user.instagram
@@ -151,36 +202,42 @@ class App extends React.Component {
       updatedUser.bio = newBio
     };
 
+    // console.log(updatedUser);
+    
     this.setState({
       user: updatedUser
     })
     this.props.history.push('/profile') 
   }
-
+ 
   handleAddUser = (event) => {
     event.preventDefault();
     const email = event.target.email.value; 
     const password = event.target.password.value; 
-    const newUser = {
-      id: 11,
-      email: email,
-      name: '',
-      username: '', 
-      password: password, 
-      instrument: '', 
-      city: '', 
-      instagram: '', 
-      facebook: '', 
-      twitter: '', 
-      soundcloud: '', 
-      bandcamp: '', 
-      spotify: '', 
-      bio: ''
-    };
-    this.setState({
-      user: newUser
-    });
-    this.props.history.push('/editprofile')
+    if (password.length < 6 && !password.match(/[A-Z]/) && !password.match(/\d+/g)) {
+      alert('password must be at least six characters long, include one uppercase letter, and one number')
+    } else {
+      const newUser = {
+        id: 11,
+        email: email,
+        name: '',
+        username: '', 
+        password: password, 
+        instrument: '', 
+        city: '', 
+        instagram: '', 
+        facebook: '', 
+        twitter: '', 
+        soundcloud: '', 
+        bandcamp: '', 
+        spotify: '', 
+        bio: ''
+      };
+      this.setState({
+        user: newUser
+      });
+      this.props.history.push('/editprofile')
+    }
   }
 
   handleClearSearch = (event) => {
@@ -200,7 +257,7 @@ class App extends React.Component {
   }
 
   render() {
-
+    // console.log(this.state.user)
     const searchResults = this.state.searchResults;
     const users = this.state.users;
     const user = this.state.user;

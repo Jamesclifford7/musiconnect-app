@@ -22,9 +22,9 @@ function Login(props) {
                     <h1>Login</h1>
                     <form onSubmit={event => props.handleLogin(event)}>
                         <label htmlFor="username">Username:</label>
-                        <input id="username" type="text"></input><br/>
+                        <input id="username" type="text" required></input><br/>
                         <label htmlFor="password">Password:</label>
-                        <input id="password" type="password" ></input><br/>
+                        <input id="password" type="password" required ></input><br/>
                         <button type="submit">Log In</button>
                     </form>
                 </div>

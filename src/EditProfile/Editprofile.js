@@ -37,7 +37,7 @@ function Editprofile(props) {
                             {
                                 (props.user.city)
                                 ? <><select id="city">
-                                    <option value="" disabled selected>Select</option>
+                                    <option value="" disabled defaultValue>Select</option>
                                     <option value="1">Los Angeles</option>
                                     <option value="2">New York</option>
                                     <option value="3">Nashville</option>
@@ -45,7 +45,7 @@ function Editprofile(props) {
                                     <option value="5">Chicago</option>
                                 </select><br/><br/></>
                                 : <><select id="city" required>
-                                    <option value="" disabled selected>Select</option>
+                                    <option value="" disabled defaultValue>Select</option>
                                     <option value="1">Los Angeles</option>
                                     <option value="2">New York</option>
                                     <option value="3">Nashville</option>
@@ -54,7 +54,7 @@ function Editprofile(props) {
                                 </select><br/><br/></>
                             }
                             <span>I am a:</span><br/>
-                            <div>
+                            {/* <div>
                                 <input type="radio" id="instrument" value="1" name="instrument" />
                                 <label htmlFor="instrument">Guitarist</label><br/>
                                 <input type="radio" id="instrument" value="2" name="instrument" />
@@ -67,7 +67,21 @@ function Editprofile(props) {
                                 <label htmlFor="instrument" >Singer</label><br/>
                                 <input type="radio" id="instrument" value="6" name="instrument" />
                                 <label htmlFor="instrument" >Producer</label><br/><br/>
-                            </div>    
+                            </div> */}
+                            <div>
+                                <input type="checkbox" id="guitar" value="1" name="instrument" />
+                                <label htmlFor="guitar">Guitarist</label><br/>
+                                <input type="checkbox" id="bass" value="2" name="instrument" />
+                                <label htmlFor="bass" >Bassist</label><br/>
+                                <input type="checkbox" id="drums" value="3" name="instrument" />
+                                <label htmlFor="drums">Drummer</label><br/>
+                                <input type="checkbox" id="piano" value="4" name="instrument" />
+                                <label htmlFor="piano" >Pianist/keyboards</label><br/>
+                                <input type="checkbox" id="singer" value="5" name="instrument" />
+                                <label htmlFor="singer" >Singer</label><br/>
+                                <input type="checkbox" id="producer" value="6" name="instrument" />
+                                <label htmlFor="producer" >Producer</label><br/><br/>
+                            </div>
                             <span>Socials:</span><br/>
                             <label htmlFor="instagram">Instagram:</label>
                             <input id="instagram" type="text" /><br/>

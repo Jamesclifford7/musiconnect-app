@@ -23,7 +23,7 @@ function Signup(props) {
                         <input id="email" type="text"></input><br/>
                         <label htmlFor="password">Password:</label>
                         <input id="password" type="password"></input><br/>
-                        <p>*Password must include one number and be at least 6 characters long</p>
+                        <p>*Password must be at least 6 characters long, include one uppercase letter, and one number</p>
                         <button type="submit">Sign Up</button>
                     </form>
                 </div>
