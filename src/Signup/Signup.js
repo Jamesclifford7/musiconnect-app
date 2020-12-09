@@ -2,6 +2,7 @@ import React from 'react'
 import './Signup.css'
 import { Link } from 'react-router-dom'
 
+
 function Signup(props) {
     return (
         <>
@@ -33,6 +34,6 @@ function Signup(props) {
             </footer>
         </>
     )
-}
+} 
 
 export default Signup

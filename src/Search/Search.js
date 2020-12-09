@@ -7,7 +7,7 @@ import Searchresults from '../SearchResults/Searchresults'
 
 class Search extends React.Component {
     render() {
-        console.log(this.props.searchResults)
+        console.log(this.props.user)
         return (
             <>
             <header>

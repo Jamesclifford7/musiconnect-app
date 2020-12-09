@@ -27,16 +27,16 @@ class App extends React.Component {
     event.preventDefault(); 
     const username = String(event.target.username.value);
     const password = String(event.target.password.value);
-    this.state.users.map(user => {
+    this.state.users.find(user => {
       if (username === user.username && password === user.password) {
         this.setState({
           user: user
         });
         this.props.history.push('/search')
-      } else {
-        alert('this user does not exist')
-      }
-    })
+      } 
+    }) 
+    
+    console.log(this.state.user)
   }
 
   handleSearch = (event) => {

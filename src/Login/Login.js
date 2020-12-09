@@ -4,18 +4,12 @@ import Nav from '../Nav/Nav'
 import { Link } from 'react-router-dom'
 
 function Login(props) {
+    console.log(props.user)
     return (
         <>
             <header>
                 <Link to='/'><h2>Musiconnect</h2></Link>
                 <Nav user={props.user} />
-                {/*
-                <nav>
-                    <ul>
-                        <li>About</li>
-                        <li>Login</li>
-                    </ul>
-                </nav>  */}
             </header>
             <main>
                 <div className="login-form">
@@ -27,6 +21,13 @@ function Login(props) {
                         <input id="password" type="password" required ></input><br/>
                         <button type="submit">Log In</button>
                     </form>
+                </div>
+                <div className="error-container">
+                    {
+                        props.user === 'not found'
+                        ? console.log('username/password does not exist')
+                        : null
+                    }
                 </div>
             </main>
             <footer>
