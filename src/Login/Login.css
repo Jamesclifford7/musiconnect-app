@@ -59,13 +59,12 @@ main {
 .login-form h1 {
     margin: 0 auto;
     padding: 20px;
-    /* border: solid; */
 }
 
 .login-form form {
     background-color: white;
     margin: 0 auto;
-    border: solid;
+    border: solid; 
     text-align: right; 
     width: 25%;
     padding: 10px;

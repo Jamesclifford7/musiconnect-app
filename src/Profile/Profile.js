@@ -16,7 +16,7 @@ function Profile(props) {
                     <div className="profile-container">
                         <div className="profile-header">
                             <div className="header-img-socials">
-                                <img src={avatar} alt="avatar" />
+                                <img src={props.user.img ? props.user.img : avatar} alt="avatar" />
                                 <a href="https://twitter.com/home" target="_blank" className="fa fa-twitter">T</a>
                                 <a href="https://www.facebook.com/" target="_blank" className="fa fa-facebook">F</a>
                                 <a href="https://www.instagram.com/" target="_blank" className="fa fa-instagram">I</a>

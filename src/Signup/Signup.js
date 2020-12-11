@@ -21,9 +21,9 @@ function Signup(props) {
                     <h1>Sign Up</h1>
                     <form onSubmit={event => props.handleAddUser(event)}>
                         <label htmlFor="email">Email:</label>
-                        <input id="email" type="text"></input><br/>
+                        <input id="email" type="text" required></input><br/>
                         <label htmlFor="password">Password:</label>
-                        <input id="password" type="password"></input><br/>
+                        <input id="password" type="password" required></input><br/>
                         <p>*Password must be at least 6 characters long, include one uppercase letter, and one number</p>
                         <button type="submit">Sign Up</button>
                     </form>

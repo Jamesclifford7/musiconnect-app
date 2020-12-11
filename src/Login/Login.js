@@ -21,11 +21,9 @@ function Login(props) {
                         <input id="password" type="password" required ></input><br/>
                         <button type="submit">Log In</button>
                     </form>
-                </div>
-                <div className="error-container">
                     {
                         props.user === 'not found'
-                        ? console.log('username/password does not exist')
+                        ? <p>Oops! Username/password not found</p>
                         : null
                     }
                 </div>

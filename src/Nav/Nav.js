@@ -24,7 +24,7 @@ class Nav extends React.Component {
             return <nav>
                         <ul>
                             <Link to='/about'><li>About</li></Link>
-                            <li><button onClick={event => this.toggleMenu(event)}><img src={avatar} alt="avatar" /></button></li>
+                            <li><button onClick={event => this.toggleMenu(event)}><img src={this.props.user.img ? this.props.user.img : avatar} alt="avatar" /></button></li>
                         </ul>
                         {
                             this.state.showMenu

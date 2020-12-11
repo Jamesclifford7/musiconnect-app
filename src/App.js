@@ -18,24 +18,45 @@ class App extends React.Component {
     super()
     this.state = {
       user: {},
-      users: Users, 
-      searchResults: []
+      users: [], 
+      searchResults: [], 
+      searchValues: []
     }
   }
+
+
+  // pass searchResults as props down to SearchResults component
+
+  // populate users with data from api
 
   handleLogin = (event) => {
     event.preventDefault(); 
     const username = String(event.target.username.value);
     const password = String(event.target.password.value);
-    this.state.users.find(user => {
-      if (username === user.username && password === user.password) {
-        this.setState({
-          user: user
-        });
-        this.props.history.push('/search')
-      } 
-    }) 
-    
+    fetch('http://localhost:8000/api/login', {
+      method: "GET", 
+      headers: {
+        'content-type': 'application/json', 
+        'username': `${username}`, 
+        'password': `${password}`
+      }
+    })
+    .then(res => {
+      if(!res.ok) {
+        throw new Error
+      }
+      return res.json()
+    })
+    .then(resJson => {
+      this.setState({
+        user: resJson
+      })
+      this.props.history.push('/search')
+    })
+    .catch(error => this.setState({
+      user: 'not found'
+    }))
+
     console.log(this.state.user)
   }
 
@@ -43,21 +64,32 @@ class App extends React.Component {
     event.preventDefault();
     const inst = parseInt(event.target.instrument.value);
     const city = parseInt(event.target.city.value);
-    const results = this.state.users.filter(user => {
-      for (let i = 0; i < user.instrument.length; i++) {
-        if (user.instrument[i] === inst && user.city === city) {
-          return user
-        }
+
+    fetch('http://localhost:8000/api/search', {
+      method: "GET", 
+      headers: {
+        'content-type': 'application/json', 
+        'instrument': `${inst}`, 
+        'city': `${city}`
       }
-      /*
-      if (user.instrument === inst && user.city === city) {
-        return user
-      } */
     })
-    this.setState({
-      searchResults: results
-    }) 
-    this.props.history.push('/results')
+    .then(res => {
+      if (!res.ok) {
+        throw new Error('search error')
+      }
+      return res.json()
+    })
+    .then(resJson => {
+      this.setState({
+        searchResults: resJson, 
+        searchValues: [inst, city]
+      })
+      this.props.history.push('/results')
+    })
+    .catch(error => this.setState({
+      searchResults: [], 
+      searchValues: []
+    }))
   }
 
   backButton = (event) => {
@@ -67,6 +99,7 @@ class App extends React.Component {
 
   handleUpdateProfile = (event) => {
     event.preventDefault();
+    const id = this.state.user.id
     const newUsername = event.target.username.value; 
     const newPassword = event.target.password.value; 
     const newName = event.target.name.value; 
@@ -119,13 +152,15 @@ class App extends React.Component {
       newInstrument = [...this.state.user.instrument]
     }
     
-    console.log(newInstrument);
+    console.log(this.state.user.instrument);
 
     const updatedUser = {
       id: this.state.user.id, 
       email: this.state.user.email, 
       instrument: newInstrument
     };
+
+
 
     if (!newUsername) {
       updatedUser.username = this.state.user.username
@@ -153,12 +188,12 @@ class App extends React.Component {
       updatedUser.city = newCity
     }; 
 
-    /*
+    
     if (!newInstrument) {
       updatedUser.instrument = this.state.user.instrument
     } else {
       updatedUser.instrument = newInstrument
-    };  */
+    };  
 
     if (!newInstagram) {
       updatedUser.instagram = this.state.user.instagram
@@ -204,21 +239,81 @@ class App extends React.Component {
 
     // console.log(updatedUser);
     
-    this.setState({
-      user: updatedUser
+    fetch(`http://localhost:8000/api/users/${id}`, {
+      method: "PATCH", 
+      body: JSON.stringify(updatedUser), 
+      headers: {
+        'content-type': 'application/json'
+      }
     })
-    this.props.history.push('/profile') 
+    .then(res => {
+      console.log(res)
+      if(!res.ok) {
+        throw new Error('patch error')
+      }
+      return res.json()
+    })
+    .then(resJson => {
+      console.log(resJson)
+      this.setState({
+        user: resJson
+      }); 
+      this.props.history.push('/profile')
+    })
+    .catch(error => console.log(error))
   }
  
   handleAddUser = (event) => {
     event.preventDefault();
     const email = event.target.email.value; 
     const password = event.target.password.value; 
+
+    const newUser = {
+      id: 21,
+      email: email,
+      name: '',
+      username: '', 
+      password: password, 
+      instrument: '', 
+      city: '', 
+      instagram: '', 
+      facebook: '', 
+      twitter: '', 
+      soundcloud: '', 
+      bandcamp: '', 
+      spotify: '', 
+      bio: ''
+    };
+
+    fetch('http://localhost:8000/api/users/', {
+        method: "POST", 
+        body: JSON.stringify(newUser), 
+        headers: {
+          'content-type': 'application/json'
+        }
+      })
+        .then(res => {
+          if (!res.ok) {
+            throw new Error
+          }
+          return res.json()
+        })
+        .then(resJson => {
+          this.setState({
+            user: resJson
+          }); 
+          this.props.history.push('/editprofile')
+        })
+        .catch(error => alert('password must be at least 6 characters and include one uppercase letter and one number'))
+        
+    // previous validation 
+
+    /*
     if (password.length < 6 && !password.match(/[A-Z]/) && !password.match(/\d+/g)) {
       alert('password must be at least six characters long, include one uppercase letter, and one number')
     } else {
       const newUser = {
-        id: 11,
+        id: 21,
         email: email,
         name: '',
         username: '', 
@@ -232,12 +327,35 @@ class App extends React.Component {
         bandcamp: '', 
         spotify: '', 
         bio: ''
-      };
+      }; 
+
+      fetch('http://localhost:8000/api/users/', {
+        method: "POST", 
+        body: JSON.stringify(newUser), 
+        headers: {
+          'content-type': 'application/json'
+        }
+      })
+        .then(res => {
+          if (!res.ok) {
+            throw new Error
+          }
+          return res.json()
+        })
+        .then(resJson => {
+          this.setState({
+            user: resJson
+          }); 
+          this.props.history.push('/editprofile')
+        })
+        .catch(error => console.log(error))
+
+      /*
       this.setState({
         user: newUser
       });
-      this.props.history.push('/editprofile')
-    }
+      this.props.history.push('/editprofile') 
+    } */
   }
 
   handleClearSearch = (event) => {
@@ -256,11 +374,40 @@ class App extends React.Component {
     this.props.history.push('/')
   }
 
+  handleDelete = (event) => {
+    event.preventDefault(); 
+    const id = this.state.user.id; 
+
+    fetch(`http://localhost:8000/api/users/${id}`, {
+      method: "DELETE", 
+      headers: {
+        'content-type': 'application/json'
+      }
+    })
+    .then(res => {
+      console.log(res)
+      if (!res.ok) {
+        throw new Error('delete error')
+      }
+      // return res.json()
+    })
+    .then(() => {
+      this.setState({
+        user: []
+      })
+      this.props.history.push('/')
+    })
+    .catch(error => console.log(error))
+  }
+
   render() {
     // console.log(this.state.user)
+    console.log(this.state.users)
+    // console.log(this.state.signupError)
     const searchResults = this.state.searchResults;
     const users = this.state.users;
     const user = this.state.user;
+    
     return (
       <div className="app">
         <Route
@@ -281,7 +428,8 @@ class App extends React.Component {
           user={user}
           handleUpdateProfile={this.handleUpdateProfile}
           handleLogout={this.handleLogout} 
-          handleClearSearch={this.handleClearSearch} />
+          handleClearSearch={this.handleClearSearch} 
+          handleDelete={this.handleDelete}/>
         )}
         />
         <Route 
@@ -303,7 +451,8 @@ class App extends React.Component {
           handleClearSearch={this.handleClearSearch}
           handleLogout={this.handleLogout}
           searchResults={searchResults}
-          user={user}/>
+          user={user}
+          searchValues={this.state.searchValues}/>
         )}
         />
         <Route
@@ -313,7 +462,8 @@ class App extends React.Component {
           backButton={this.backButton} 
           user={user} 
           handleLogout={this.handleLogout} 
-          handleClearSearch={this.handleClearSearch} />
+          handleClearSearch={this.handleClearSearch}
+          searchResults={this.state.searchResults} />
         )}
         />
         <Route 

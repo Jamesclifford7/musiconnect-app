@@ -7,6 +7,7 @@ import Nav from '../Nav/Nav'
 class Searchresults extends React.Component {
     render() {
         console.log(this.props.searchResults)
+        console.log(this.props.searchValues)
         return (
             <>
                 <header>
@@ -21,7 +22,7 @@ class Searchresults extends React.Component {
                             <h1>Search</h1>
                             <form onSubmit={event => this.props.handleSearch(event)}>
                                 <label htmlFor="instrument">I am seeking a:</label>
-                                    <select id="instrument">
+                                    <select id="instrument" defaultValue={this.props.searchValues ? this.props.searchValues[0]: null} >
                                         <option value="1">Guitarist</option>
                                         <option value="2">Bassist</option>
                                         <option value="3">Drummer</option>
@@ -29,9 +30,9 @@ class Searchresults extends React.Component {
                                         <option value="5">Singer</option>
                                         <option value="6">Producer</option>
                                     </select><br/>
-
+                                    
                                 <label htmlFor="city">in:</label>
-                                    <select id="city">
+                                    <select id="city" defaultValue={this.props.searchValues ? this.props.searchValues[1]: null}>
                                         <option value="1">Los Angeles</option>
                                         <option value="2">New York</option>
                                         <option value="3">Nashville</option>
@@ -43,12 +44,10 @@ class Searchresults extends React.Component {
                         </div>
                         <div className="search-results-container">
                                 {
-                                    
-                                    
                                     this.props.searchResults.length
                                     ? this.props.searchResults.map((result, id) => {
                                         return <div className="result" key={id}>
-                                            <img src={avatar} alt="user" />
+                                            <img src={result.img ? result.img : avatar} alt="user" />
                                             <Link to={`/user/${result.id}`}><h2>{result.username}</h2></Link>
                                             <p>{result.name}</p>
                                             <p>{result.instrument}</p>

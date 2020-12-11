@@ -44,7 +44,7 @@ nav ul li img {
     margin: 0 auto;
     border-radius: 50%; 
     border: solid;
-    border-width: 2px;
+    border-width: 2px; 
     width: 15px;
     height: 15px; 
 }
@@ -85,6 +85,7 @@ label, select {
 
 .search-results-container img {
     height: 60px;
+    width: 60px;
     border: solid; 
     border-radius: 50%;
 }
