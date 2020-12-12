@@ -23,15 +23,13 @@ class Editprofile extends React.Component {
         return (
             <>
             <header>
-                { /* <Link to='/search'><h2>Musiconnect</h2></Link> */}
+                
                 {
                     (!this.props.user.username || !this.props.user.name || !this.props.user.city)
                     ? <h2>Musiconnect</h2>
                     : <><button onClick={event => this.props.handleClearSearch(event)}><h2>Musiconnect</h2></button>
                     <Nav user={this.props.user} handleLogout={this.props.handleLogout} handleClearSearch={this.props.handleClearSearch} /></>
-                    }
-                {/* <button onClick={event => props.handleClearSearch(event)}><h2>Musiconnect</h2></button>
-                <Nav user={props.user} handleLogout={props.handleLogout} handleClearSearch={props.handleClearSearch} /> */}
+                }
             </header>
             <main>
                 <section className="profile">
@@ -77,17 +75,17 @@ class Editprofile extends React.Component {
                             <span>*I am a:</span><br/>
             
                             <div>
-                                <input type="checkbox" id="guitar" value="1" name="instrument" />
+                                <input type="checkbox" id="guitar" value="guitarist" name="instrument" />
                                 <label htmlFor="guitar">Guitarist</label><br/>
-                                <input type="checkbox" id="bass" value="2" name="instrument" />
+                                <input type="checkbox" id="bass" value="bassist" name="instrument" />
                                 <label htmlFor="bass" >Bassist</label><br/>
-                                <input type="checkbox" id="drums" value="3" name="instrument" />
+                                <input type="checkbox" id="drums" value="drummer" name="instrument" />
                                 <label htmlFor="drums">Drummer</label><br/>
-                                <input type="checkbox" id="piano" value="4" name="instrument" />
+                                <input type="checkbox" id="piano" value="pianist/keyboards" name="instrument" />
                                 <label htmlFor="piano" >Pianist/keyboards</label><br/>
-                                <input type="checkbox" id="singer" value="5" name="instrument" />
+                                <input type="checkbox" id="singer" value="singer" name="instrument" />
                                 <label htmlFor="singer" >Singer</label><br/>
-                                <input type="checkbox" id="producer" value="6" name="instrument" />
+                                <input type="checkbox" id="producer" value="producer" name="instrument" />
                                 <label htmlFor="producer" >Producer</label><br/><br/>
                             </div>
                             <span>Socials:</span><br/>

@@ -11,7 +11,6 @@ import Profile from './Profile/Profile'
 import About from './About/About'
 import Noresults from './NoResults/Noresults'
 import Login from './Login/Login'
-import Users from './STORE/Users'
 
 class App extends React.Component {
   constructor() {
@@ -23,11 +22,6 @@ class App extends React.Component {
       searchValues: []
     }
   }
-
-
-  // pass searchResults as props down to SearchResults component
-
-  // populate users with data from api
 
   handleLogin = (event) => {
     event.preventDefault(); 
@@ -56,15 +50,13 @@ class App extends React.Component {
     .catch(error => this.setState({
       user: 'not found'
     }))
-
-    console.log(this.state.user)
   }
 
   handleSearch = (event) => {
     event.preventDefault();
-    const inst = parseInt(event.target.instrument.value);
-    const city = parseInt(event.target.city.value);
-
+    const inst = event.target.instrument.value;
+    const city = event.target.city.value;
+    console.log(inst, city)
     fetch('http://localhost:8000/api/search', {
       method: "GET", 
       headers: {
@@ -74,8 +66,8 @@ class App extends React.Component {
       }
     })
     .then(res => {
-      if (!res.ok) {
-        throw new Error('search error')
+      if (res.ok == false) {
+        throw new Error
       }
       return res.json()
     })
@@ -88,8 +80,10 @@ class App extends React.Component {
     })
     .catch(error => this.setState({
       searchResults: [], 
-      searchValues: []
+      searchValues: [inst, city]
     }))
+    this.props.history.push('/results')
+    
   }
 
   backButton = (event) => {
@@ -104,8 +98,6 @@ class App extends React.Component {
     const newPassword = event.target.password.value; 
     const newName = event.target.name.value; 
     const newCity = parseInt(event.target.city.value); 
-    // const newInstrument = parseInt(event.target.instrument.value); 
-    // const newInstrument = [parseInt(event.target.guitar.value), parseInt(event.target.bass.value), parseInt(event.target.drums.value), parseInt(event.target.piano.value), parseInt(event.target.singer.value), parseInt(event.target.producer.value)]
     const newInstagram = event.target.instagram.value; 
     const newFacebook = event.target.facebook.value; 
     const newTwitter = event.target.twitter.value; 
@@ -116,12 +108,13 @@ class App extends React.Component {
 
     let newInstrument = [];
     
-    const guitar = event.target.guitar.checked ? parseInt(event.target.guitar.value) : null
-    const bass = event.target.bass.checked ? parseInt(event.target.bass.value) : null
-    const drums = event.target.drums.checked ? parseInt(event.target.drums.value) : null
-    const piano = event.target.piano.checked ? parseInt(event.target.piano.value) : null
-    const singer = event.target.singer.checked ? parseInt(event.target.singer.value) : null
-    const producer = event.target.producer.checked ? parseInt(event.target.producer.value) : null
+    // changed instrument values to string due to postgres issue
+    const guitar = event.target.guitar.checked ? event.target.guitar.value : null
+    const bass = event.target.bass.checked ? event.target.bass.value : null
+    const drums = event.target.drums.checked ? event.target.drums.value : null
+    const piano = event.target.piano.checked ? event.target.piano.value : null
+    const singer = event.target.singer.checked ? event.target.singer.value : null
+    const producer = event.target.producer.checked ? event.target.producer.value : null
     
     
     if (guitar) {
@@ -151,16 +144,12 @@ class App extends React.Component {
     if (!guitar && !bass && !drums && !piano && !singer && !producer) {
       newInstrument = [...this.state.user.instrument]
     }
-    
-    console.log(this.state.user.instrument);
 
     const updatedUser = {
       id: this.state.user.id, 
       email: this.state.user.email, 
       instrument: newInstrument
     };
-
-
 
     if (!newUsername) {
       updatedUser.username = this.state.user.username
@@ -236,8 +225,6 @@ class App extends React.Component {
     } else {
       updatedUser.bio = newBio
     };
-
-    // console.log(updatedUser);
     
     fetch(`http://localhost:8000/api/users/${id}`, {
       method: "PATCH", 
@@ -265,17 +252,18 @@ class App extends React.Component {
  
   handleAddUser = (event) => {
     event.preventDefault();
-    const email = event.target.email.value; 
-    const password = event.target.password.value; 
+    const email = String(event.target.email.value); 
+    const password = String(event.target.password.value); 
+    console.log(email, password)
+
 
     const newUser = {
-      id: 21,
       email: email,
       name: '',
       username: '', 
       password: password, 
-      instrument: '', 
-      city: '', 
+      instrument: [], 
+      city: 1, 
       instagram: '', 
       facebook: '', 
       twitter: '', 
@@ -385,11 +373,9 @@ class App extends React.Component {
       }
     })
     .then(res => {
-      console.log(res)
       if (!res.ok) {
         throw new Error('delete error')
       }
-      // return res.json()
     })
     .then(() => {
       this.setState({
@@ -401,9 +387,7 @@ class App extends React.Component {
   }
 
   render() {
-    // console.log(this.state.user)
-    console.log(this.state.users)
-    // console.log(this.state.signupError)
+    
     const searchResults = this.state.searchResults;
     const users = this.state.users;
     const user = this.state.user;
@@ -481,10 +465,6 @@ class App extends React.Component {
           handleLogout={this.handleLogout} 
           handleClearSearch={this.handleClearSearch} />
         )}
-        />
-        <Route 
-        path='/noresults'
-        component={Noresults}
         />
         <Route 
         path='/login'

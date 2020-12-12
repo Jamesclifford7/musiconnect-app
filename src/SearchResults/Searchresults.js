@@ -6,13 +6,9 @@ import Nav from '../Nav/Nav'
 
 class Searchresults extends React.Component {
     render() {
-        console.log(this.props.searchResults)
-        console.log(this.props.searchValues)
         return (
             <>
                 <header>
-                    { /* <Link to='/search'><h2>Musiconnect</h2></Link> */ }
-                    { /* <h2><button onClick={this.props.handleClearSearch}>Musiconnect</button></h2> */}
                     <button onClick={event => this.props.handleClearSearch(event)}><h2>Musiconnect</h2></button>
                     <Nav user={this.props.user} handleLogout={this.props.handleLogout} handleClearSearch={this.props.handleClearSearch} />
                 </header>
@@ -22,22 +18,22 @@ class Searchresults extends React.Component {
                             <h1>Search</h1>
                             <form onSubmit={event => this.props.handleSearch(event)}>
                                 <label htmlFor="instrument">I am seeking a:</label>
-                                    <select id="instrument" defaultValue={this.props.searchValues ? this.props.searchValues[0]: null} >
-                                        <option value="1">Guitarist</option>
-                                        <option value="2">Bassist</option>
-                                        <option value="3">Drummer</option>
-                                        <option value="4">Pianist/keyboards</option>
-                                        <option value="5">Singer</option>
-                                        <option value="6">Producer</option>
+                                    <select id="instrument" defaultValue={this.props.searchValues.length ? this.props.searchValues[0]: null} >
+                                        <option value="guitarist">Guitarist</option>
+                                        <option value="bassist">Bassist</option>
+                                        <option value="drummer">Drummer</option>
+                                        <option value="pianist/keyboards">Pianist/keyboards</option>
+                                        <option value="singer">Singer</option>
+                                        <option value="producer">Producer</option>
                                     </select><br/>
                                     
                                 <label htmlFor="city">in:</label>
-                                    <select id="city" defaultValue={this.props.searchValues ? this.props.searchValues[1]: null}>
-                                        <option value="1">Los Angeles</option>
-                                        <option value="2">New York</option>
-                                        <option value="3">Nashville</option>
-                                        <option value="4">Austin</option>
-                                        <option value="5">Chicago</option>
+                                    <select id="city" defaultValue={this.props.searchValues.length ? this.props.searchValues[1]: null}>
+                                        <option value="Los Angeles">Los Angeles</option>
+                                        <option value="New York">New York</option>
+                                        <option value="Nashville">Nashville</option>
+                                        <option value="Austin">Austin</option>
+                                        <option value="Chicago">Chicago</option>
                                     </select><br/><br/>
                                 <button type="submit">Search</button>
                             </form>

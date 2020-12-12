@@ -2,7 +2,6 @@ import React from 'react'
 import './Signup.css'
 import { Link } from 'react-router-dom'
 
-
 function Signup(props) {
     return (
         <>
@@ -12,7 +11,6 @@ function Signup(props) {
                     <ul>
                         <Link to='/about'><li>About</li></Link>
                         <Link to='/login'><li>Login</li></Link>
-                        {/* <li><img src="images/icon-user-default.png" alt="avatar" width="25" height="25" /></li> */}
                     </ul>
                 </nav>
             </header>

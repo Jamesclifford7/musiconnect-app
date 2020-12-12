@@ -13,7 +13,7 @@ function About(props) {
                     ? <button onClick={event => props.handleClearSearch(event)}><h2>Musiconnect</h2></button>
                     : <Link to='/'><h2>Musiconnect</h2></Link>
                 }
-                {/* <Link to='/search'><h2>Musiconnect</h2></Link> */}
+                
                 <Nav user={props.user} handleClearSearch={props.handleClearSearch} handleLogout={props.handleLogout} />
             </header>
             

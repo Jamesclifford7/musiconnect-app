@@ -7,7 +7,6 @@ import Searchresults from '../SearchResults/Searchresults'
 
 class Search extends React.Component {
     render() {
-        console.log(this.props.user)
         return (
             <>
             <header>
@@ -23,21 +22,21 @@ class Search extends React.Component {
                         <form onSubmit={event => this.props.handleSearch(event)}>
                             <label htmlFor="instrument">I am seeking a:</label>
                                 <select id="instrument">
-                                    <option value="1">Guitarist</option>
-                                    <option value="2">Bassist</option>
-                                    <option value="3">Drummer</option>
-                                    <option value="4">Pianist/keyboards</option>
-                                    <option value="5">Singer</option>
-                                    <option value="6">Producer</option>
+                                    <option value="guitarist">Guitarist</option>
+                                    <option value="bassist">Bassist</option>
+                                    <option value="drummer">Drummer</option>
+                                    <option value="pianist/keyboards">Pianist/keyboards</option>
+                                    <option value="singer">Singer</option>
+                                    <option value="producer">Producer</option>
                                 </select><br/>
 
                             <label htmlFor="city">in:</label>
                                 <select id="city">
-                                    <option value="1">Los Angeles</option>
-                                    <option value="2">New York</option>
-                                    <option value="3">Nashville</option>
-                                    <option value="4">Austin</option>
-                                    <option value="5">Chicago</option>
+                                    <option value="Los Angeles">Los Angeles</option>
+                                    <option value="New York">New York</option>
+                                    <option value="Nashville">Nashville</option>
+                                    <option value="Austin">Austin</option>
+                                    <option value="Chicago">Chicago</option>
                                 </select><br/><br/>
                             <button type="submit">Search</button>
                         </form>

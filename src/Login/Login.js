@@ -4,7 +4,6 @@ import Nav from '../Nav/Nav'
 import { Link } from 'react-router-dom'
 
 function Login(props) {
-    console.log(props.user)
     return (
         <>
             <header>
