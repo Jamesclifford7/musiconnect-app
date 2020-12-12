@@ -9,7 +9,6 @@ import Searchresults from './SearchResults/Searchresults'
 import User from './User/User'
 import Profile from './Profile/Profile'
 import About from './About/About'
-import Noresults from './NoResults/Noresults'
 import Login from './Login/Login'
 
 class App extends React.Component {
@@ -27,7 +26,8 @@ class App extends React.Component {
     event.preventDefault(); 
     const username = String(event.target.username.value);
     const password = String(event.target.password.value);
-    fetch('http://localhost:8000/api/login', {
+    // fetch('http://localhost:8000/api/login', {
+      fetch('https://intense-thicket-43454.herokuapp.com/api/login', {
       method: "GET", 
       headers: {
         'content-type': 'application/json', 
@@ -57,7 +57,8 @@ class App extends React.Component {
     const inst = event.target.instrument.value;
     const city = event.target.city.value;
     console.log(inst, city)
-    fetch('http://localhost:8000/api/search', {
+    // fetch('http://localhost:8000/api/search', {
+      fetch('https://intense-thicket-43454.herokuapp.com/api/search', {
       method: "GET", 
       headers: {
         'content-type': 'application/json', 
@@ -226,7 +227,8 @@ class App extends React.Component {
       updatedUser.bio = newBio
     };
     
-    fetch(`http://localhost:8000/api/users/${id}`, {
+    //fetch(`http://localhost:8000/api/users/${id}`, {
+      fetch(`https://intense-thicket-43454.herokuapp.com/api/users/${id}`, {
       method: "PATCH", 
       body: JSON.stringify(updatedUser), 
       headers: {
@@ -273,7 +275,8 @@ class App extends React.Component {
       bio: ''
     };
 
-    fetch('http://localhost:8000/api/users/', {
+    //fetch('http://localhost:8000/api/users/', {
+      fetch('https://intense-thicket-43454.herokuapp.com/api/users/', {
         method: "POST", 
         body: JSON.stringify(newUser), 
         headers: {
@@ -366,7 +369,8 @@ class App extends React.Component {
     event.preventDefault(); 
     const id = this.state.user.id; 
 
-    fetch(`http://localhost:8000/api/users/${id}`, {
+    // fetch(`http://localhost:8000/api/users/${id}`, {
+      fetch(`https://intense-thicket-43454.herokuapp.com/api/users/${id}`, {
       method: "DELETE", 
       headers: {
         'content-type': 'application/json'
