@@ -6,6 +6,7 @@ import Nav from '../Nav/Nav'
 
 class Searchresults extends React.Component {
     render() {
+        console.log(this.props.searchValues)
         return (
             <>
                 <header>
@@ -14,11 +15,11 @@ class Searchresults extends React.Component {
                 </header>
                 <main>
                     <div className="container">
-                        <div className="search-container">
+                        <div className="search-container-results">
                             <h1>Search</h1>
                             <form onSubmit={event => this.props.handleSearch(event)}>
                                 <label htmlFor="instrument">I am seeking a:</label>
-                                    <select id="instrument" defaultValue={this.props.searchValues.length ? this.props.searchValues[0]: null} >
+                                    <select id="instrument" defaultValue={this.props.searchValues.length ? this.props.searchValues[0] : null} >
                                         <option value="guitarist">Guitarist</option>
                                         <option value="bassist">Bassist</option>
                                         <option value="drummer">Drummer</option>
@@ -28,7 +29,7 @@ class Searchresults extends React.Component {
                                     </select><br/>
                                     
                                 <label htmlFor="city">in:</label>
-                                    <select id="city" defaultValue={this.props.searchValues.length ? this.props.searchValues[1]: null}>
+                                    <select id="city" defaultValue={this.props.searchValues.length ? this.props.searchValues[1] : null}>
                                         <option value="Los Angeles">Los Angeles</option>
                                         <option value="New York">New York</option>
                                         <option value="Nashville">Nashville</option>
@@ -46,7 +47,7 @@ class Searchresults extends React.Component {
                                             <img src={result.img ? result.img : avatar} alt="user" />
                                             <Link to={`/user/${result.id}`}><h2>{result.username}</h2></Link>
                                             <p>{result.name}</p>
-                                            <p>{result.instrument}</p>
+                                            <p>{result.instrument.join(', ')}</p>
                                         </div>    
                                     })
                                     : <div>
@@ -64,6 +65,7 @@ class Searchresults extends React.Component {
         )
     }
 }
+
 
 
 export default Searchresults

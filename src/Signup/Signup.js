@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 function Signup(props) {
     return (
         <>
-            <header>
+            <header className="landing-header">
             <Link to='/'><h2>Musiconnect</h2></Link>
                 <nav>
                     <ul>

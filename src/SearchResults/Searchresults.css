@@ -21,9 +21,9 @@ nav {
     border-color: green; */
     width: 20%;
     text-align: center; 
-    float: right; 
-    display: inline; 
-    margin-right: 50px;
+    /* float: right; */
+    /*display: inline; 
+    margin-right: 50px; */
 }
 
 nav ul {
@@ -33,13 +33,12 @@ nav ul {
 }
 
 nav ul li {
-    margin: 10px; 
+    /*margin: 10px; 
     padding: 20px;
     /* border: solid; */
     display: inline;
-    text-align: center;
 }
-
+/*
 nav ul li img {
     margin: 0 auto;
     border-radius: 50%; 
@@ -57,7 +56,7 @@ main {
     margin: 100px 0 0 0; 
 }
 
-main .search-container {
+main .search-container-results {
     margin: 0 auto;
     /* margin-top: 70px; */
     width: 90%;
@@ -66,7 +65,7 @@ main .search-container {
     height: 250px;
 }
 
-main .search-container h1 {
+main .search-container-results h1 {
     padding-top: 50px;
     padding-bottom: 20px;
     margin: 0 auto;

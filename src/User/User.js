@@ -44,7 +44,7 @@ class User extends React.Component {
                                         <h3>{user.username}</h3>
                                         <p>{user.name}</p>
                                         <p>{user.city}</p>
-                                        <p>{user.instrument}</p>
+                                        <p>{user.instrument.join(', ')}</p>
                                         <div className="email-container">
                                             {
                                                 !this.state.showEmail

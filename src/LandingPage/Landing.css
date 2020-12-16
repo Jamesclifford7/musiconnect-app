@@ -2,20 +2,21 @@
 
 header {
     /* margin: 20px; */
-    padding: 20px;
+    /* padding: 20px; */
     border-bottom: solid;
     position: fixed;
+    height: 30px;
     top: 0;
     width: 100%;
     background-color: white; 
 } 
 
+
 header h2 {
-    display: inline; 
-    /* border: solid; 
-    border-color: red; */ 
-    margin: 10px;
-    padding: 40px;
+    display: inline;  
+    padding: 0;
+    /* margin: 10px; */
+    /* padding: 40px; */
 }
 
 nav {
@@ -23,10 +24,10 @@ nav {
     border-color: green; */
     width: 20%;
     text-align: center; 
-    float: right; 
+    /* float: right; 
     display: inline; 
     margin-right: 50px;
-    padding: 5px;
+    padding: 5px; */
 }
 
 nav ul {
@@ -39,7 +40,7 @@ nav ul {
 }
 
 nav ul li {
-    margin: 10px;
+    /* margin: 10px;
     /* border: solid; */
     display: inline;
 }
@@ -135,23 +136,23 @@ footer span {
         text-align: center; 
         height: 90px;
         margin: 0 auto;
-        position: static;
+    }
+
+    header h2 {
+        margin: 0 auto;
+        border: solid; 
+        padding: 100px;
     }
 
     nav {
-        /* display: block; */
-        /* border: solid; 
-        border-color: blue; */
+        display: block;  
         width: 100%;
         margin: 0 auto; 
-        
     }
 
     nav ul {
         display: block;
-        /* border: solid; 
-        border-color: green; */
-        width: 80%;
+        width: 80%; 
         text-align: center; 
         margin: 0 auto; 
     }
@@ -160,10 +161,8 @@ footer span {
         display: block;
         /* margin: 0 50px 0 0; */ 
         margin: 0 auto; 
-        /*width: 20%;
-        border: solid;
-        border-color: pink;*/
-        padding: 2px;
+        /*width: 20%; */
+        
     }
     
     main {
@@ -172,6 +171,7 @@ footer span {
 
     .landing {
         padding: 20px;
+        /* margin-top: 10px; */
     }
 
     .landing h1 {

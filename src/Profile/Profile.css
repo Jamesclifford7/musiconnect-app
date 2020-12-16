@@ -23,10 +23,10 @@ nav {
     border-color: green; */
     width: 20%;
     text-align: center; 
-    float: right; 
+    /* float: right; */
     display: inline; 
-    margin-right: 50px;
-    padding: 5px;
+    /* margin-right: 50px;
+    padding: 5px; */
 }
 
 nav ul {
@@ -39,7 +39,7 @@ nav ul {
 }
 
 nav ul li {
-    margin: 10px;
+    /* margin: 10px;
     /* border: solid; */
     display: inline;
 }

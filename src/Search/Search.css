@@ -2,7 +2,8 @@
 
 header {
     /* margin: 20px; */
-    padding: 20px;
+    padding: 20px; 
+    /* height: 30px; */
     border-bottom: solid;
     position: fixed;
     top: 0;
@@ -15,16 +16,13 @@ header button {
     border: none; 
     background-color: inherit; 
     outline: inherit;
+    padding: 0;
+    margin: 0;
+    font-size: 1em;  
 } 
 
 header button:hover {
     text-decoration: underline;
-}
-
-header h2 {
-    display: inline; 
-    margin: 10px;
-    padding: 40px;
 }
 
 nav {
@@ -32,9 +30,9 @@ nav {
     border-color: green; */
     width: 20%;
     text-align: center; 
-    float: right; /* change to flex */
+    /* float: right; 
     display: inline; 
-    margin-right: 50px;
+    margin-right: 50px; */
 }
 
 nav ul {
@@ -44,11 +42,10 @@ nav ul {
 }
 
 nav ul li {
-    margin: 10px; 
+    /* margin: 10px; */
     padding: 20px;
     /* border: solid; */
     display: inline;
-    text-align: center;
 }
 
 nav ul li img {
@@ -56,21 +53,44 @@ nav ul li img {
     border-radius: 50%; 
     border: solid;
     border-width: 2px;
-    width: 15px;
-    height: 15px; 
-}
+    width: 30px;
+    height: 30px; /* most likely an issue with padding */
+} 
 
 nav .dropdown-container {
-    border: solid;
-    position: absolute;
-    margin-top: 8px;
-    margin-left: 155px;
+    /* border: solid; */
+    position: absolute; /* absolute*/
+    margin-top: 0px;
+    margin-left: 910px; 
     background-color: white;
+    width: 130px;
 }
 
-nav .dropdown-container Link {
+nav .dropdown-container .triangle {
+    width: 0; 
+    height: 0; 
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid black;
+    margin: 0 auto;
+}
+
+nav .dropdown-container .dropdown {
     border: solid;
-    display: block;
+}
+
+nav .dropdown button {
+    border-top: solid;
+    width: 100%;
+}
+
+nav .dropdown a {
+    color: black;
+    text-decoration: none;
+}
+
+nav .dropdown a:hover {
+    text-decoration: underline;
 }
 
 /* MAIN SECTIONS */
@@ -82,11 +102,12 @@ main {
 }
 
 main .search-container {
-    /* margin: 0 auto;
+    margin: 0 auto;
     /* margin-top: 70px; */
     width: 90%;
     background-color: blanchedalmond;
-    border: solid;
+    height: 500px;
+    /* border: solid; */
 }
 
 main .search-container h1 {
@@ -121,7 +142,7 @@ footer span {
         width: 89%;
         display: block;
         text-align: center; 
-        height: 90px;
+        height: 90px; /* 90 */
         margin: 0 auto;
         position: static;
     }
@@ -154,11 +175,28 @@ footer span {
         padding: 2px;
     }
 
+    nav .dropdown-container {
+        position: static; /* absolute*/
+        width: 100%; 
+        margin: 0 auto;
+        /* margin-left: 106px; /* 106px */
+    }
+
+    nav .dropdown button {
+        border-top: solid;
+        width: 100%;
+    }
+
     main {
         margin-top: 20px;
     }
+    /*
+    main .container {
+        margin-top: 10px;
+    } */
 
     .search-container {
         width: 90%;
     }
+    
 }

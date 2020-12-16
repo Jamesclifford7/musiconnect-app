@@ -3,6 +3,7 @@ import './Profile.css'
 import avatar from '../Images/icon-user-default.png' 
 import { Link } from 'react-router-dom' 
 import Nav from '../Nav/Nav'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 function Profile(props) {
     return (
@@ -17,6 +18,7 @@ function Profile(props) {
                         <div className="profile-header">
                             <div className="header-img-socials">
                                 <img src={props.user.img ? props.user.img : avatar} alt="avatar" />
+                                {/* <FontAwesomeIcon icon={["fab", "facebook-f"]} /> */}
                                 <a href="https://twitter.com/home" target="_blank" className="fa fa-twitter">T</a>
                                 <a href="https://www.facebook.com/" target="_blank" className="fa fa-facebook">F</a>
                                 <a href="https://www.instagram.com/" target="_blank" className="fa fa-instagram">I</a>
@@ -24,7 +26,7 @@ function Profile(props) {
                             <h3>Username: {props.user.username}</h3>
                             <p>Name: {props.user.name}</p>
                             <p>City: {props.user.city}</p>
-                            <p>Instrument(s): {props.user.instrument}</p>
+                            <p>Instrument(s): {props.user.instrument.join(', ')}</p>
                             <button><Link to='/editprofile'>Edit Profile</Link></button><br/>
                             {/* <button onClick={event => props.handleClearSearch(event)}>Search!</button> */}
                         </div>

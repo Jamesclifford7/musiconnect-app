@@ -12,8 +12,6 @@ header {
 
 header h2 {
     display: inline; 
-    /* border: solid;
-    border-color: red; */
     margin: 10px;
     padding: 40px;
 }
@@ -23,10 +21,10 @@ nav {
     border-color: green; */
     width: 20%;
     text-align: center; 
-    float: right; 
+    /* float: right; */
     display: inline; 
-    margin-right: 50px;
-    padding: 5px;
+    /* margin-right: 50px;
+    padding: 5px; */
 }
 
 nav ul {
@@ -39,19 +37,20 @@ nav ul {
 }
 
 nav ul li {
-    margin: 10px;
+    /* margin: 10px;
     /* border: solid; */
     display: inline;
 }
-
+/*
 nav ul li img {
     margin: 0 auto;
     border-radius: 50%; 
     border: solid;
+    border-color: pink;
     border-width: 2px;
     width: 15px;
     height: 15px; 
-}
+} */
 
 /* MAIN SECTIONS */
 
@@ -95,6 +94,10 @@ main {
 .profile-container .profile-info {
     text-align: left;
     margin-left: 40px;
+}
+
+.profile-container button {
+    margin: 10px;
 }
 
 /* FOOTER */

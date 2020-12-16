@@ -1,18 +1,23 @@
 import React from 'react'
 import './Landing.css'
 import { Link } from 'react-router-dom'
+import Nav from '../Nav/Nav'
 
-function Landing() {
+function Landing(props) {
     return (
         <>
-            <header>
-                <Link to='/'><h2>Musiconnect</h2></Link>
+            <header className="landing-header">
+                {/* <Link to='/'><h2>Musiconnect</h2></Link> */}
+                <h2><Link to='/'>Musiconnect</Link></h2>
+                <Nav user={props.user} />
+                {/*
                 <nav>
                     <ul>
                         <Link to='/about'><li>About</li></Link>
                         <Link to='/login'><li>Login</li></Link>
                     </ul>
                 </nav>
+                */    }
             </header>
             <main>
                 <section className="landing">

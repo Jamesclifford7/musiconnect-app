@@ -16,7 +16,6 @@ class App extends React.Component {
     super()
     this.state = {
       user: {},
-      users: [], 
       searchResults: [], 
       searchValues: []
     }
@@ -45,6 +44,9 @@ class App extends React.Component {
       this.setState({
         user: resJson
       })
+      // this.props.history.push('/search')
+    })
+    .then(() => {
       this.props.history.push('/search')
     })
     .catch(error => this.setState({
@@ -77,14 +79,17 @@ class App extends React.Component {
         searchResults: resJson, 
         searchValues: [inst, city]
       })
+    })
+    .then(() => {
       this.props.history.push('/results')
     })
     .catch(error => this.setState({
       searchResults: [], 
       searchValues: [inst, city]
     }))
-    this.props.history.push('/results')
-    
+    .then(() => {
+      this.props.history.push('/results')
+    })
   }
 
   backButton = (event) => {
@@ -352,7 +357,8 @@ class App extends React.Component {
   handleClearSearch = (event) => {
     event.preventDefault();
     this.setState({
-      searchResults: []
+      searchResults: [], 
+      searchValues: []
     });
     this.props.history.push('/search')
   }
@@ -360,7 +366,9 @@ class App extends React.Component {
   handleLogout = (event) => {
     event.preventDefault();
     this.setState({
-      user: []
+      user: [], 
+      searchResults: [], 
+      searchValues: []
     })
     this.props.history.push('/')
   }
@@ -393,14 +401,16 @@ class App extends React.Component {
   render() {
     
     const searchResults = this.state.searchResults;
-    const users = this.state.users;
     const user = this.state.user;
+    console.log(this.state.searchValues)
     
     return (
       <div className="app">
         <Route
         exact path='/'
-        component={Landing}
+        render={(props) => (
+          <Landing {...props} user={user} />
+        )}
         />
         <Route
         path='/signup'
@@ -428,7 +438,8 @@ class App extends React.Component {
           searchResults={searchResults}
           handleLogout={this.handleLogout} 
           handleClearSearch={this.handleClearSearch}
-          user={user}/>
+          user={user}
+          searchValues={this.state.searchValues}/>
         )}
         />
         <Route 
@@ -446,7 +457,7 @@ class App extends React.Component {
         <Route
         path='/user/:id'
         render={(props) => (
-          <User {...props} users={users} 
+          <User {...props}  
           backButton={this.backButton} 
           user={user} 
           handleLogout={this.handleLogout} 

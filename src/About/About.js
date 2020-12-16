@@ -7,11 +7,11 @@ import Nav from '../Nav/Nav'
 function About(props) {
     return (
         <>
-            <header>
+            <header className={props.user.email ? "" : "landing-header"}>
                 {
                     props.user.email
                     ? <button onClick={event => props.handleClearSearch(event)}><h2>Musiconnect</h2></button>
-                    : <Link to='/'><h2>Musiconnect</h2></Link>
+                    : <h2><Link to='/'>Musiconnect</Link></h2>
                 }
                 
                 <Nav user={props.user} handleClearSearch={props.handleClearSearch} handleLogout={props.handleLogout} />

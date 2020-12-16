@@ -2,7 +2,7 @@
 
 header {
     /* margin: 20px; */
-    padding: 20px;
+    /* padding: 20px; */
     border-bottom: solid;
     position: fixed;
     top: 0;
@@ -23,10 +23,10 @@ nav {
     border-color: green; */
     width: 20%;
     text-align: center; 
-    float: right; 
+    /* float: right; */
     display: inline; 
-    margin-right: 50px;
-    padding: 5px;
+    /* margin-right: 50px; */
+    /* padding: 5px; */
 }
 
 nav ul {
@@ -39,7 +39,6 @@ nav ul {
 }
 
 nav ul li {
-    margin: 10px;
     /* border: solid; */
     display: inline;
 }
@@ -124,12 +123,23 @@ footer span {
         border-color: pink;*/
         padding: 2px;
     }
-    
+    /*
     main {
-        margin-top: -10px;
-    } 
+        /* margin-top: -10px; 
+        margin: 30px 0 0 0;
+    } */
 
     .about-container {
-        height: 750px;
+        height: 600px;
+    }
+
+    .about-container h1 {
+        padding-top: 50px;
+        padding-bottom: 20px;
+        margin: 0 auto;
+    } 
+
+    .about-container p {
+        width: 75%;
     }
 }
