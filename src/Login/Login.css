@@ -257,7 +257,7 @@ footer span {
     }
 
     .about-container, .login-form, .signup-form, .profile {
-        height: 915px;
+        height: 1100px; /* 915 */
     }
 
     .signup .flex-container {
@@ -267,8 +267,13 @@ footer span {
     .container .search-container {
         height: 915px;
     }
+    
+    .search-results-container {
+        padding-bottom: 333px;
+    }
 
+    /*
     .container .search-results-container {
         height: 700px;
-    }
+    }  */
 }
