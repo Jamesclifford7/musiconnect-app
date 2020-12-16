@@ -415,7 +415,7 @@ class App extends React.Component {
         <Route
         path='/signup'
         render={(props) => (
-          <Signup {...props} handleAddUser={this.handleAddUser} />
+          <Signup user={user} {...props} handleAddUser={this.handleAddUser} />
         )}
         />
         <Route

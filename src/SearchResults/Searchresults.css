@@ -60,9 +60,10 @@ main .search-container-results {
     margin: 0 auto;
     /* margin-top: 70px; */
     width: 90%;
-    background-color: blanchedalmond;
+    background-color: whitesmoke;
     text-align: center;
     height: 250px;
+    padding-bottom: 80px;
 }
 
 main .search-container-results h1 {
@@ -76,10 +77,10 @@ label, select {
 }
 
 .search-results-container {
-    border: solid; 
+    /* border: solid; */
     width: 90%;
     margin: 0 auto;
-    background-color: blanchedalmond;
+    background-color: whitesmoke;
 }
 
 .search-results-container img {
@@ -93,7 +94,17 @@ label, select {
     text-align: left;
     padding: 15px 15px 15px 30px;
     border: solid;
+    background-color: #ffe433; 
+    height: 215px;
 }
+
+.search-results-container .noresults-message {
+    height: 235px;
+}
+/*
+.search-results-container {
+    height: 320px;
+} */
 
 /* FOOTER */
 
@@ -162,5 +173,6 @@ footer span {
 
     .search-results-container .result {
         text-align: center;
+        padding: 15px;
     }
 }

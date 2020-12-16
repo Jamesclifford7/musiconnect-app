@@ -2,6 +2,9 @@ import React from 'react'
 import './User.css'
 import avatar from '../Images/icon-user-default.png' 
 import Nav from '../Nav/Nav'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+/* import { library } from '@fortawesome/fontawesome-svg-core' */
+import { faFacebookF, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons' 
 
 class User extends React.Component {
     constructor() {
@@ -37,9 +40,9 @@ class User extends React.Component {
                                     <div className="profile-header">
                                         <div className="header-img-socials">
                                             <img src={user.img ? user.img : avatar} alt="avatar" />
-                                            <a href="https://twitter.com/home" target="_blank" className="fa fa-twitter">T</a>
-                                            <a href="https://www.facebook.com/" target="_blank" className="fa fa-facebook">F</a>
-                                            <a href="https://www.instagram.com/" target="_blank" className="fa fa-instagram">I</a>
+                                            <a href="https://www.facebook.com/" target="_blank" ><FontAwesomeIcon icon={faFacebookF} /> </a>
+                                            <a href="https://twitter.com/home" target="_blank" ><FontAwesomeIcon icon={faTwitter} /> </a>
+                                            <a href="https://www.instagram.com/" target="_blank" ><FontAwesomeIcon icon={faInstagram} /> </a>
                                         </div>
                                         <h3>{user.username}</h3>
                                         <p>{user.name}</p>
@@ -54,11 +57,11 @@ class User extends React.Component {
                                         </div>
                                     </div>
                                     <div className="profile-info">
-                                        <p>Music Links: <br/> 
-                                            {user.soundcloud ? user.soundcloud : null} <br/> 
-                                            {user.bandcamp ? user.bandcamp : null} <br/>  
-                                            {user.spotify ? user.spotify : null}
-                                        </p>
+                                        <p>Music Links:</p> 
+                                            {this.props.user.soundcloud ? <a href="https://www.soundcloud.com" target="_blank">soundcloud</a> : null} <br /> 
+                                            {this.props.user.bandcamp ? <a href="https://www.bandcamp.com" target="_blank">bandcamp</a> : null} <br/>  
+                                            {this.props.user.spotify ? <a href="https://www.spotify.com" target="_blank">spotify</a> : null}
+                                        
                                         <p>Bio: {user.bio}</p>
                                     </div>
                                     <div className="back-button">

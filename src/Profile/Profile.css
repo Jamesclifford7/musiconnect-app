@@ -52,13 +52,18 @@ main {
     margin: 100px 0 0 0; 
 }
 
+.profile {
+    background-color: whitesmoke;
+}
+
 .profile-container {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
     width: 90%;
     justify-content: center;
-    background-color: blanchedalmond;
+    background-color: #ffe433;
+    border: solid;
 }
 
 .profile-header img {
@@ -71,11 +76,12 @@ main {
     border-bottom: solid;
     text-align: left;
     padding: 40px;
+    background-color: whitesmoke; 
 }
 
-.profile-header a {
+.profile-header a, .profile-header svg {
     float: right;
-    padding-left: 18px;
+    padding-left: 10px;
 }
 
 .profile-header h4, .profile-header p {
@@ -140,6 +146,33 @@ footer span {
         margin-top: 20px;
     }  
 
+    .profile-header {
+        text-align: center;
+    }
+
+    .profile-header {
+        background-color: whitesmoke;
+    }
+
+    .profile-header p {
+        padding: 5px;
+        margin-block-end: 0;
+        margin-block-start: 0;
+        width: 100%;
+    }
+
+    .profile-container .profile-info {
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .profile-info p {
+        /* margin-block-end: 0;
+        margin-block-start: 0;
+        padding: 20px; */
+        width: 100%;
+    }
+
     .header-img-socials {
         display: block;
         text-align: center;
@@ -156,5 +189,10 @@ footer span {
         display: inline-block;
         padding: 10px;
         float: none;
+    }
+
+    .profile-container {
+        width: 100%;
+        border: none;
     }
 }

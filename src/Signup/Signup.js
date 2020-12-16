@@ -1,18 +1,14 @@
 import React from 'react'
 import './Signup.css'
 import { Link } from 'react-router-dom'
+import Nav from '../Nav/Nav'
 
 function Signup(props) {
     return (
         <>
             <header className="landing-header">
-            <Link to='/'><h2>Musiconnect</h2></Link>
-                <nav>
-                    <ul>
-                        <Link to='/about'><li>About</li></Link>
-                        <Link to='/login'><li>Login</li></Link>
-                    </ul>
-                </nav>
+                <h2><Link to='/'>Musiconnect</Link></h2>
+                <Nav user={props.user} />
             </header>
             <main>
                 <div className="signup-form">

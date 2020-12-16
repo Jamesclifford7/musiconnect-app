@@ -55,7 +55,7 @@ main {
 .landing {
     margin: 0 auto;
     padding: 30px;
-    background-color: blanchedalmond;
+    background-color: whitesmoke;
 }
 
 .landing p {
@@ -70,13 +70,15 @@ main {
     display: flex; 
     flex-direction: row;
     justify-content: space-around;
-    background-color: white;
+    background-image: url('../Images/concert-image-2.jpg');
+    background-position: center;
 }
 
 .info .flex-item {
     border: solid;
     width: 30%;
-    background-color: blanchedalmond;
+    /* background-color: #ffe433; */
+    background-color: whitesmoke; 
 }
 
 .info .flex-item p {
@@ -94,7 +96,7 @@ main {
     width: 100%;
     position: relative; 
     text-align: center;
-    background-color: blanchedalmond;
+    background-color: #ffe433;
 }
 
 .signup .content, .signup h2 {
@@ -182,6 +184,7 @@ footer span {
     .info {
         width: 100%;
         margin: 0 auto;
+        background-color: white;
     } 
 
     .info .flex-container {
@@ -189,7 +192,7 @@ footer span {
         justify-content: space-around;
         align-items: center;
         height: 100%;
-        width: 90%;
+        width: 95%;
         margin: 0 auto;
         padding: 10px; 
     }
@@ -203,6 +206,6 @@ footer span {
         margin: 0 auto;
         flex-direction: column;
         justify-content: space-evenly;
-        background-color: blanchedalmond;
+        background-color: #ffe433;
     } 
 }

@@ -19,6 +19,8 @@ header button {
     padding: 0;
     margin: 0;
     font-size: 1em;  
+    transition: ease; 
+    transition-delay: 5s;
 } 
 
 header button:hover {
@@ -62,7 +64,7 @@ nav .dropdown-container {
     position: absolute; /* absolute*/
     margin-top: 0px;
     margin-left: 910px; 
-    background-color: white;
+    background-color: #ffe433;
     width: 130px;
 }
 
@@ -89,6 +91,10 @@ nav .dropdown a {
     text-decoration: none;
 }
 
+nav .dropdown button, nav .dropdown a {
+    line-height: 40px;
+}
+
 nav .dropdown a:hover {
     text-decoration: underline;
 }
@@ -105,8 +111,8 @@ main .search-container {
     margin: 0 auto;
     /* margin-top: 70px; */
     width: 90%;
-    background-color: blanchedalmond;
-    height: 500px;
+    background-color: whitesmoke;
+    height: 580px;
     /* border: solid; */
 }
 
@@ -181,6 +187,23 @@ footer span {
         margin: 0 auto;
         /* margin-left: 106px; /* 106px */
     }
+
+    nav .dropdown-container .dropdown {
+        width: 100%;
+    }
+
+    nav .dropdown {
+        background-color: whitesmoke;
+    }
+
+    nav .dropdown button, nav .dropdown a {
+        line-height: 40px;
+    }
+
+    /*
+    nav .dropdown-container .dropdown {
+        width: 100%;
+    } */
 
     nav .dropdown button {
         border-top: solid;

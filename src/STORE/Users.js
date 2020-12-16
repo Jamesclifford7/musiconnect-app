@@ -38,7 +38,7 @@ const users = [
         email: 'stevienicks@gmail.com',
         name: 'Stevie Nicks',
         username: 'Rhiannon81', 
-        password: 'egdeof17', 
+        password: 'Edgeof17', 
         instrument: [5], 
         city: 1, 
         instagram: '@stevienicksofficial', 

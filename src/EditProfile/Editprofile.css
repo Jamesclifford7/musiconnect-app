@@ -62,7 +62,8 @@ main {
     padding-top: 20px;
     width: 90%;
     justify-content: center;
-    background-color: blanchedalmond;
+    background-color: whitesmoke;
+    border: none;
 }
 
 .form-container img {
