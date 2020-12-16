@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Pacifico&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
 /* HEADER */
 
 header {
@@ -16,6 +23,7 @@ header h2 {
     margin: 0 auto; 
     margin-left: 20px;
     padding: 0px; 
+    font-family: 'Pacifico', cursive;
 }
 
 header h2 a {
