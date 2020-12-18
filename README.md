@@ -11,13 +11,21 @@ delete the profile. Thank you and enjoy searching!
 
 ## Screenshots
 
+### Landing Page
+
 ![Alt](https://github.com/Jamesclifford7/musiconnect-app/blob/main/src/Images/mc-landing-screenshot.png)
 
 ![Alt](https://github.com/Jamesclifford7/musiconnect-app/blob/main/src/Images/mc-signup-screenshot.png)
 
+### Login
+
 ![Alt](https://github.com/Jamesclifford7/musiconnect-app/blob/main/src/Images/mc-login-screenshot.png)
 
+### Search
+
 ![Alt](https://github.com/Jamesclifford7/musiconnect-app/blob/main/src/Images/mc-search-screenshot.png)
+
+### User Profile
 
 ![Alt](https://github.com/Jamesclifford7/musiconnect-app/blob/main/src/Images/mc-user-screenshot.png)
 
