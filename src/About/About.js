@@ -1,6 +1,5 @@
 import React from 'react'
 import './About.css'
-import avatar from '../Images/icon-user-default.png' 
 import { Link } from 'react-router-dom'
 import Nav from '../Nav/Nav'
 

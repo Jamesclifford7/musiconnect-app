@@ -2,7 +2,6 @@ import React from 'react'
 import './Editprofile.css'
 import avatar from '../Images/icon-user-default.png' 
 import Nav from '../Nav/Nav'
-import { Link } from 'react-router-dom'
 
 class Editprofile extends React.Component {
     constructor() {

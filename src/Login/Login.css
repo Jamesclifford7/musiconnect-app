@@ -8,14 +8,12 @@ body {
 /* HEADER */
 
 header {
-    /* margin: 20px; */
-    /*padding: 20px; */
     border-bottom: solid;
     position: fixed; 
     top: 0;
     width: 100%;
     background-color: #ffe433; 
-    height: 35px; /* was 35 */ 
+    height: 35px; 
 } 
 
 header h2 {
@@ -40,8 +38,6 @@ header button h2:hover {
 }
 
 nav {
-    /* border: solid;
-    border-color: green; */
     width: 80%;
     text-align: center; 
     display: inline-block;
@@ -49,8 +45,6 @@ nav {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    /* margin-right: 50px; */
-    /* padding: 5px; */ 
 }
 
 nav ul {
@@ -58,17 +52,11 @@ nav ul {
     display: flex; 
     justify-content: flex-end;
     margin: 0 auto;
-    /* border: solid;
-    border-color: pink; */
     text-align: center;
 }
 
 nav ul li {
-    /* margin: 0 auto; 
-    margin-right: 50px; */
     padding: 0;
-    /* border: solid; 
-    border-color: blue; */
     display: inline; 
     margin-right: 60px;
 }
@@ -83,17 +71,8 @@ nav ul li a:hover {
 }
 
 nav ul .about-link {
-    /*border: solid;
-    border-color: red; */
     padding-top: 11px;
 }
-
-/*
-nav ul .avatar {
-    border: solid; 
-    border-color: green;
-} */
-
 
 /* MAIN */
 
@@ -170,7 +149,7 @@ footer span {
         width: 100%;
         display: block;
         text-align: center; 
-        height: auto; /* 170 */
+        height: auto; 
         margin: 0 auto;
         position: static; 
         padding: 0;
@@ -195,12 +174,10 @@ footer span {
         position: static;
         top: 0;
         transform: unset; 
-        /* width: 100%; */
     }
 
     nav ul {
         display: block;
-       /* width: 100%; /* 100px */
         height: auto;
         text-align: center;  
         margin: 0 auto; 
@@ -210,17 +187,12 @@ footer span {
     nav ul li {
         display: block;
         margin: 0 auto; 
-        /* width: 50%;  */
         padding: 8px; 
     }
 
     nav ul .about-link {
         padding-top: 0;
     }
-    /*
-    main {
-        margin-top: -10px;
-    } */
     
     .login-form form {
         width: 80%;
@@ -237,11 +209,6 @@ footer span {
     header ul {
         width: 77%;
     }
-    
-    /*
-    main {
-        height: 900px;
-    } */
 
     main .landing {
         padding-bottom: 90px;
@@ -250,8 +217,8 @@ footer span {
     nav .dropdown-container {
         /* border: solid; */
         position: absolute;
-        margin-top: 0px;
-        margin-left: 450px;
+        margin-top: 40px;
+        margin-right: 11px;
         background-color: #ffe433;
         width: 130px;
     }
@@ -271,9 +238,42 @@ footer span {
     .search-results-container {
         padding-bottom: 333px;
     }
+}
 
-    /*
-    .container .search-results-container {
-        height: 700px;
-    }  */
+/* MEDIA QUERY FOR DESKTOP */
+
+@media all and (min-height: 900px) {
+    .landing {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+
+    .about-container {
+        height: 1000px;
+    }
+
+    .login-form {
+        height: 1000px;
+    }
+
+    .signup-form {
+        height: 1000px;
+    }
+
+    main .search-container {
+        height: 1000px;
+    }
+
+    .search-results-container {
+        padding-bottom: 400px;
+    }
+
+    .profile-header {
+        padding-bottom: 100px;
+    }
+
+    .profile-info {
+        padding-top: 50px;
+        padding-bottom: 80px;
+    }
 }

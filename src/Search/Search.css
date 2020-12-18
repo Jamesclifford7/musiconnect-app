@@ -62,8 +62,8 @@ nav ul li img {
 nav .dropdown-container {
     /* border: solid; */
     position: absolute; /* absolute*/
-    margin-top: 0px;
-    margin-left: 910px; 
+    margin-top: 40px;
+    margin-right: 11px;
     background-color: #ffe433;
     width: 130px;
 }
@@ -93,6 +93,7 @@ nav .dropdown a {
 
 nav .dropdown button, nav .dropdown a {
     line-height: 40px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 nav .dropdown a:hover {

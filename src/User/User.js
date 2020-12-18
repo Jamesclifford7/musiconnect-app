@@ -26,7 +26,7 @@ class User extends React.Component {
             <>
             {
                 this.props.searchResults.map((user, id) => {
-                    if (user.id == parseInt(this.props.match.params.id)) {
+                    if (user.id === parseInt(this.props.match.params.id)) {
                         return <>
                         <header>
                         
@@ -34,15 +34,15 @@ class User extends React.Component {
                         <Nav user={this.props.user} handleClearSearch={this.props.handleClearSearch} handleLogout={this.props.handleLogout} />
                         
                         </header>
-                        <main>
-                            <section className="profile" key={id}>
+                        <main key={id}>
+                            <section className="profile">
                                 <div className="profile-container">
                                     <div className="profile-header">
                                         <div className="header-img-socials">
                                             <img src={user.img ? user.img : avatar} alt="avatar" />
-                                            <a href="https://www.facebook.com/" target="_blank" ><FontAwesomeIcon icon={faFacebookF} /> </a>
-                                            <a href="https://twitter.com/home" target="_blank" ><FontAwesomeIcon icon={faTwitter} /> </a>
-                                            <a href="https://www.instagram.com/" target="_blank" ><FontAwesomeIcon icon={faInstagram} /> </a>
+                                            <a href="https://www.facebook.com/" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faFacebookF} /> </a>
+                                            <a href="https://twitter.com/home" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faTwitter} /> </a>
+                                            <a href="https://www.instagram.com/" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faInstagram} /> </a>
                                         </div>
                                         <h3>{user.username}</h3>
                                         <p>{user.name}</p>
@@ -58,9 +58,9 @@ class User extends React.Component {
                                     </div>
                                     <div className="profile-info">
                                         <p>Music Links:</p> 
-                                            {this.props.user.soundcloud ? <a href="https://www.soundcloud.com" target="_blank">soundcloud</a> : null} <br /> 
-                                            {this.props.user.bandcamp ? <a href="https://www.bandcamp.com" target="_blank">bandcamp</a> : null} <br/>  
-                                            {this.props.user.spotify ? <a href="https://www.spotify.com" target="_blank">spotify</a> : null}
+                                            {this.props.user.soundcloud ? <a href="https://www.soundcloud.com" target="_blank" rel="noreferrer">soundcloud</a> : null} <br /> 
+                                            {this.props.user.bandcamp ? <a href="https://www.bandcamp.com" target="_blank" rel="noreferrer">bandcamp</a> : null} <br/>  
+                                            {this.props.user.spotify ? <a href="https://www.spotify.com" target="_blank" rel="noreferrer">spotify</a> : null}
                                         
                                         <p>Bio: {user.bio}</p>
                                     </div>
@@ -75,7 +75,7 @@ class User extends React.Component {
                             <span>	&#169; Musiconnect 2020</span>
                         </footer>
                     </>
-                        }
+                        } 
                    
                 })
                 }

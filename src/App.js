@@ -25,7 +25,6 @@ class App extends React.Component {
     event.preventDefault(); 
     const username = String(event.target.username.value);
     const password = String(event.target.password.value);
-    // fetch('http://localhost:8000/api/login', {
       fetch('https://intense-thicket-43454.herokuapp.com/api/login', {
       method: "GET", 
       headers: {
@@ -36,7 +35,7 @@ class App extends React.Component {
     })
     .then(res => {
       if(!res.ok) {
-        throw new Error
+        throw new Error()
       }
       return res.json()
     })
@@ -44,7 +43,6 @@ class App extends React.Component {
       this.setState({
         user: resJson
       })
-      // this.props.history.push('/search')
     })
     .then(() => {
       this.props.history.push('/search')
@@ -58,8 +56,6 @@ class App extends React.Component {
     event.preventDefault();
     const inst = event.target.instrument.value;
     const city = event.target.city.value;
-    console.log(inst, city)
-    // fetch('http://localhost:8000/api/search', {
       fetch('https://intense-thicket-43454.herokuapp.com/api/search', {
       method: "GET", 
       headers: {
@@ -69,11 +65,16 @@ class App extends React.Component {
       }
     })
     .then(res => {
-      if (res.ok == false) {
-        throw new Error
+      if (res.ok === false) {
+        throw new Error()
       }
       return res.json()
     })
+    .then(resJson => {
+      const userIndex = resJson.findIndex(user => user.id === this.state.user.id)
+      resJson.splice(userIndex, 1)
+      return resJson
+    }) 
     .then(resJson => {
       this.setState({
         searchResults: resJson, 
@@ -232,7 +233,6 @@ class App extends React.Component {
       updatedUser.bio = newBio
     };
     
-    //fetch(`http://localhost:8000/api/users/${id}`, {
       fetch(`https://intense-thicket-43454.herokuapp.com/api/users/${id}`, {
       method: "PATCH", 
       body: JSON.stringify(updatedUser), 
@@ -280,7 +280,6 @@ class App extends React.Component {
       bio: ''
     };
 
-    //fetch('http://localhost:8000/api/users/', {
       fetch('https://intense-thicket-43454.herokuapp.com/api/users/', {
         method: "POST", 
         body: JSON.stringify(newUser), 
@@ -290,7 +289,7 @@ class App extends React.Component {
       })
         .then(res => {
           if (!res.ok) {
-            throw new Error
+            throw new Error()
           }
           return res.json()
         })
@@ -301,57 +300,6 @@ class App extends React.Component {
           this.props.history.push('/editprofile')
         })
         .catch(error => alert('password must be at least 6 characters and include one uppercase letter and one number'))
-        
-    // previous validation 
-
-    /*
-    if (password.length < 6 && !password.match(/[A-Z]/) && !password.match(/\d+/g)) {
-      alert('password must be at least six characters long, include one uppercase letter, and one number')
-    } else {
-      const newUser = {
-        id: 21,
-        email: email,
-        name: '',
-        username: '', 
-        password: password, 
-        instrument: '', 
-        city: '', 
-        instagram: '', 
-        facebook: '', 
-        twitter: '', 
-        soundcloud: '', 
-        bandcamp: '', 
-        spotify: '', 
-        bio: ''
-      }; 
-
-      fetch('http://localhost:8000/api/users/', {
-        method: "POST", 
-        body: JSON.stringify(newUser), 
-        headers: {
-          'content-type': 'application/json'
-        }
-      })
-        .then(res => {
-          if (!res.ok) {
-            throw new Error
-          }
-          return res.json()
-        })
-        .then(resJson => {
-          this.setState({
-            user: resJson
-          }); 
-          this.props.history.push('/editprofile')
-        })
-        .catch(error => console.log(error))
-
-      /*
-      this.setState({
-        user: newUser
-      });
-      this.props.history.push('/editprofile') 
-    } */
   }
 
   handleClearSearch = (event) => {
@@ -377,7 +325,6 @@ class App extends React.Component {
     event.preventDefault(); 
     const id = this.state.user.id; 
 
-    // fetch(`http://localhost:8000/api/users/${id}`, {
       fetch(`https://intense-thicket-43454.herokuapp.com/api/users/${id}`, {
       method: "DELETE", 
       headers: {
@@ -399,10 +346,8 @@ class App extends React.Component {
   }
 
   render() {
-    
     const searchResults = this.state.searchResults;
     const user = this.state.user;
-    console.log(this.state.searchValues)
     
     return (
       <div className="app">
