@@ -11,7 +11,6 @@ class Search extends React.Component {
                 ? <>
                 <header>
                     <button onClick={event => this.props.handleClearSearch(event)}><h2>Musiconnect</h2></button> 
-                    {/* <h2><button onClick={event => this.props.handleClearSearch(event)}>Musiconnect</button></h2> */}
                     <Nav user={this.props.user} handleLogout={this.props.handleLogout} handleClearSearch={this.props.handleClearSearch} />
                 </header>
                 <main>
@@ -46,7 +45,7 @@ class Search extends React.Component {
                     <span>	&#169; Musiconnect 2020</span>
                 </footer> 
             </>
-            : <h1>Page not found</h1> // add button to take user back to login
+            : <h1>Page not found</h1> // add button to take user back to login?
              }
             </>
         )

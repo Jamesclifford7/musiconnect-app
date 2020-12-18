@@ -1,64 +1,7 @@
-/* HEADER */
-
-header {
-    /* margin: 20px; */
-    padding: 20px;
-    border-bottom: solid;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: white; 
-} 
-
-header h2 {
-    display: inline; 
-    margin: 10px;
-    padding: 40px;
-}
-
-nav {
-    /* border: solid;
-    border-color: green; */
-    width: 20%;
-    text-align: center; 
-    /* float: right; */
-    /*display: inline; 
-    margin-right: 50px; */
-}
-
-nav ul {
-    list-style-type: none;
-    display: inline; 
-    /* float: right; */
-}
-
-nav ul li {
-    /*margin: 10px; 
-    padding: 20px;
-    /* border: solid; */
-    display: inline;
-}
-/*
-nav ul li img {
-    margin: 0 auto;
-    border-radius: 50%; 
-    border: solid;
-    border-width: 2px; 
-    width: 15px;
-    height: 15px; 
-}
-
 /* MAIN SECTIONS */
-
-main {
-    text-align: center;
-    /* margin: 0 auto; */
-    margin: 100px 0 0 0; 
-}
 
 main .search-container-results {
     margin: 0 auto;
-    /* margin-top: 70px; */
     width: 90%;
     background-color: whitesmoke;
     text-align: center;
@@ -77,7 +20,6 @@ label, select {
 }
 
 .search-results-container {
-    /* border: solid; */
     width: 90%;
     margin: 0 auto;
     background-color: whitesmoke;
@@ -101,75 +43,10 @@ label, select {
 .search-results-container .noresults-message {
     height: 235px;
 }
-/*
-.search-results-container {
-    height: 320px;
-} */
-
-/* FOOTER */
-
-footer {
-    height: 30px;
-}
-
-footer span {
-    display: inline-block;
-    padding: 10px;
-    margin-left: 5px;
-}
 
 /* MEDIA QUERY */
 
 @media all and (max-width: 600px) {
-    body {
-        margin: 0 auto;
-        text-align: center;
-    } 
-
-    header { 
-        width: 89%;
-        display: block;
-        text-align: center; 
-        height: 90px;
-        margin: 0 auto;
-        position: static;
-    }
-
-    nav {
-        /* display: block; */
-        /* border: solid; 
-        border-color: blue; */
-        width: 100%;
-        margin: 0 auto; 
-        
-    }
-
-    nav ul {
-        display: block;
-        /* border: solid; 
-        border-color: green; */
-        width: 80%;
-        text-align: center; 
-        margin: 0 auto; 
-    }
-
-    nav ul li {
-        display: block;
-        /* margin: 0 50px 0 0; */ 
-        margin: 0 auto; 
-        /*width: 20%;
-        border: solid;
-        border-color: pink;*/
-        padding: 2px;
-    }
-
-    main {
-        margin-top: 20px;
-    }
-
-    .search-container {
-        width: 90%;
-    }
 
     .search-results-container .result {
         text-align: center;

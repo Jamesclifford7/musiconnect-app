@@ -30,38 +30,3 @@ function About(props) {
 }
 
 export default About
-
-/*
-
-{
-                props.user.length === 1
-                ? <header>
-                <h2>Musiconnect</h2>
-                <nav>
-                    <ul>
-                        <Link to='/about'><li>About</li></Link>
-                        
-                        {/* <Link to='/profile'><li><img src={avatar} alt="avatar" /></li></Link> 
-                        <li><button><img src={avatar} alt="avatar" /></button></li>
-                    </ul>
-                    <div className="dropdown-container">
-                            <div className="dropdown">
-                                <Link to='/profile'>Your Profile</Link><br/>
-                                <Link to='/search'>Search</Link>
-                            </div>    
-                        </div>
-                    
-                </nav>
-            </header>
-            : <header>
-            <h2>Musiconnect</h2>
-            <nav>
-                <ul>
-                    <li>About</li>
-                    <li>Login</li>
-                </ul>
-            </nav>
-        </header>
-            }
-
-*/

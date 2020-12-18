@@ -21,6 +21,8 @@ class App extends React.Component {
     }
   }
 
+  // Login handler
+
   handleLogin = (event) => {
     event.preventDefault(); 
     const username = String(event.target.username.value);
@@ -51,6 +53,8 @@ class App extends React.Component {
       user: 'not found'
     }))
   }
+
+  // Search handler
 
   handleSearch = (event) => {
     event.preventDefault();
@@ -97,6 +101,8 @@ class App extends React.Component {
     event.preventDefault();
     this.props.history.goBack();
   }
+
+  // update profile handler
 
   handleUpdateProfile = (event) => {
     event.preventDefault();
@@ -256,6 +262,8 @@ class App extends React.Component {
     })
     .catch(error => console.log(error))
   }
+
+  // signup handler
  
   handleAddUser = (event) => {
     event.preventDefault();
@@ -320,6 +328,8 @@ class App extends React.Component {
     })
     this.props.history.push('/')
   }
+
+  // Delete account handler
 
   handleDelete = (event) => {
     event.preventDefault(); 
@@ -431,7 +441,6 @@ class App extends React.Component {
         render={(props) => (
           <Login {...props} user={user} handleLogin={this.handleLogin} />
         )}
-
         />
       </div>
     )

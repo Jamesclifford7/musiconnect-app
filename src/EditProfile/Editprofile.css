@@ -1,59 +1,4 @@
-/* HEADER */
-
-header {
-    /* margin: 20px; */
-    padding: 20px;
-    border-bottom: solid;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: white; 
-} 
-
-header h2 {
-    display: inline; 
-    /* border: solid;
-    border-color: red; */
-    margin: 10px;
-    padding: 40px;
-}
-
-nav {
-    /* border: solid;
-    border-color: green; */
-    width: 20%;
-    text-align: center; 
-    /* float: right; 
-    display: inline; 
-    margin-right: 50px;
-    padding: 5px; */
-}
-
-nav ul {
-    list-style-type: none;
-    display: inline; 
-    /* border: solid;
-    border-color: pink; */
-    /* margin: 0 auto; */
-    /* float: right; */
-}
-
-nav ul li {
-    /* margin: 10px;
-    /* border: solid; */
-    display: inline;
-}
-
 /* MAIN SECTIONS */
-
-main {
-    text-align: center;
-    /* margin: 0 auto; */
-    margin: 100px 0 0 0; 
-    /* border: solid; */
-    height: 100%;
-    background-color: white;
-}
 
 .form-container {
     /* display: flex;
@@ -91,45 +36,9 @@ main {
 
 /* FOOTER */
 
-footer {
-    height: 30px;
-}
-
-footer span {
-    display: inline-block;
-    padding: 10px;
-    margin-left: 5px;
-}
-
 /* Media Query */
 
 @Media all and (max-width: 600px) {
-    header { 
-        width: 89%;
-        display: block;
-        text-align: center; 
-        height: 90px;
-        margin: 0 auto;
-        /* position: static; */
-    }
-
-    nav {
-        width: 100%;
-        margin: 0 auto; 
-    }
-
-    nav ul {
-        display: block;
-        width: 80%;
-        text-align: center; 
-        margin: 0 auto; 
-    }
-
-    nav ul li {
-        display: block;
-        margin: 0 auto; 
-        padding: 2px;
-    }
 
     .form-container img {
         margin-top: 50px;

@@ -1,56 +1,4 @@
-/* HEADER */
-
-header {
-    /* margin: 20px; */
-    /* padding: 20px; */
-    border-bottom: solid;
-    position: fixed;
-    height: 30px;
-    top: 0;
-    width: 100%;
-    background-color: white; 
-} 
-
-
-header h2 {
-    display: inline;  
-    padding: 0;
-    /* margin: 10px; */
-    /* padding: 40px; */
-}
-
-nav {
-    /* border: solid;
-    border-color: green; */
-    width: 20%;
-    text-align: center; 
-    /* float: right; 
-    display: inline; 
-    margin-right: 50px;
-    padding: 5px; */
-}
-
-nav ul {
-    list-style-type: none;
-    display: inline; 
-    /* border: solid;
-    border-color: pink; */
-    /* margin: 0 auto; */
-    /* float: right; */
-}
-
-nav ul li {
-    /* margin: 10px;
-    /* border: solid; */
-    display: inline;
-}
-
 /* MAIN SECTIONS */
-
-main {
-    text-align: center;
-    margin: 70px 0 0 0; 
-}
 
 .landing {
     margin: 0 auto;
@@ -66,7 +14,6 @@ main {
 .info .flex-container {
     height: 300px;
     padding: 20px;
-    /* border-color: green; */
     display: flex; 
     flex-direction: row;
     justify-content: space-around;
@@ -77,7 +24,6 @@ main {
 .info .flex-item {
     border: solid;
     width: 30%;
-    /* background-color: #ffe433; */
     background-color: whitesmoke; 
 }
 
@@ -112,64 +58,9 @@ main {
     border-left: solid;
 }
 
-/* FOOTER */
-
-footer {
-    height: 30px;
-}
-
-footer span {
-    display: inline-block; 
-    padding: 10px;
-    margin-left: 5px;
-}
-
 /* MEDIA QUERIES */
 
 @media all and (max-width: 600px) {
-    body {
-        margin: 0 auto;
-        text-align: center;
-    } 
-
-    header { 
-        width: 89%;
-        display: block;
-        text-align: center; 
-        height: 90px;
-        margin: 0 auto;
-    }
-
-    header h2 {
-        margin: 0 auto;
-        border: solid; 
-        padding: 100px;
-    }
-
-    nav {
-        display: block;  
-        width: 100%;
-        margin: 0 auto; 
-    }
-
-    nav ul {
-        display: block;
-        width: 80%; 
-        text-align: center; 
-        margin: 0 auto; 
-    }
-
-    nav ul li {
-        display: block;
-        /* margin: 0 50px 0 0; */ 
-        margin: 0 auto; 
-        /*width: 20%; */
-        
-    }
-    
-    main {
-        margin-top: -10px;
-    } 
 
     .landing {
         padding: 20px;

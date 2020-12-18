@@ -1,17 +1,5 @@
 /* HEADER */
 
-header {
-    /* margin: 20px; */
-    padding: 20px; 
-    /* height: 30px; */
-    border-bottom: solid;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: white; 
-} 
-
-
 header button {
     border: none; 
     background-color: inherit; 
@@ -27,43 +15,19 @@ header button:hover {
     text-decoration: underline;
 }
 
-nav {
-    /* border: solid;
-    border-color: green; */
-    width: 20%;
-    text-align: center; 
-    /* float: right; 
-    display: inline; 
-    margin-right: 50px; */
-}
-
-nav ul {
-    list-style-type: none;
-    display: inline; 
-    /* float: right; */
-}
-
-nav ul li {
-    /* margin: 10px; */
-    padding: 20px;
-    /* border: solid; */
-    display: inline;
-}
-
 nav ul li img {
     margin: 0 auto;
     border-radius: 50%; 
     border: solid;
     border-width: 2px;
     width: 30px;
-    height: 30px; /* most likely an issue with padding */
+    height: 30px; 
 } 
 
 nav .dropdown-container {
-    /* border: solid; */
     position: absolute; /* absolute*/
     margin-top: 40px;
-    margin-right: 11px;
+    margin-left: 40px;
     background-color: #ffe433;
     width: 130px;
 }
@@ -102,12 +66,6 @@ nav .dropdown a:hover {
 
 /* MAIN SECTIONS */
 
-main {
-    text-align: center;
-    /* margin: 0 auto; 
-    margin: 100px 0 0 0;  */
-}
-
 main .search-container {
     margin: 0 auto;
     /* margin-top: 70px; */
@@ -127,60 +85,9 @@ label, select {
     margin: 5px;
 }
 
-footer {
-    height: 30px;
-}
-
-footer span {
-    display: inline-block; 
-    padding: 10px;
-    margin-left: 5px;
-}
-
 /* MEDIA QUERY */
 
 @media all and (max-width: 600px) {
-    body {
-        margin: 0 auto;
-        text-align: center;
-    } 
-
-    header { 
-        width: 89%;
-        display: block;
-        text-align: center; 
-        height: 90px; /* 90 */
-        margin: 0 auto;
-        position: static;
-    }
-
-    nav {
-        /* display: block; */
-        /* border: solid; 
-        border-color: blue; */
-        width: 100%;
-        margin: 0 auto; 
-        
-    }
-
-    nav ul {
-        display: block;
-        /* border: solid; 
-        border-color: green; */
-        width: 80%;
-        text-align: center; 
-        margin: 0 auto; 
-    }
-
-    nav ul li {
-        display: block;
-        /* margin: 0 50px 0 0; */ 
-        margin: 0 auto; 
-        /*width: 20%;
-        border: solid;
-        border-color: pink;*/
-        padding: 2px;
-    }
 
     nav .dropdown-container {
         position: static; /* absolute*/
@@ -201,26 +108,9 @@ footer span {
         line-height: 40px;
     }
 
-    /*
-    nav .dropdown-container .dropdown {
-        width: 100%;
-    } */
-
     nav .dropdown button {
         border-top: solid;
         width: 100%;
-    }
-
-    main {
-        margin-top: 20px;
-    }
-    /*
-    main .container {
-        margin-top: 10px;
-    } */
-
-    .search-container {
-        width: 90%;
     }
     
 }

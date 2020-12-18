@@ -3,7 +3,6 @@ import './User.css'
 import avatar from '../Images/icon-user-default.png' 
 import Nav from '../Nav/Nav'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-/* import { library } from '@fortawesome/fontawesome-svg-core' */
 import { faFacebookF, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons' 
 
 class User extends React.Component {

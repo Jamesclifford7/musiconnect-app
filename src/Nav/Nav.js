@@ -36,28 +36,12 @@ class Nav extends React.Component {
                             : null
                         }
                         </ul>
-                        {/*
-                            this.state.showMenu
-                            ? <div className="dropdown-container">
-                                <div className="triangle"></div>
-                                <div className="dropdown">
-                                    <Link to='/profile'>Your Profile</Link><br/>
-                                    <button onClick={event => this.props.handleClearSearch(event)}>Search</button><br/>
-                                    <button onClick={event => this.props.handleLogout(event)}>Logout</button>
-                                </div>    
-                            </div>
-                            : null
-                    */    }
-
                     </nav>
         } else {
             return <nav>
                         <ul>
-                            
                             <li><Link to='/about'>About</Link></li>
                             <li><Link to='/login'>Login</Link></li>  
-                        {/*   <Link to='/about'><li>About</li></Link> 
-                            <Link to='/login'><li>Login</li></Link> */}
                         </ul>
                     </nav>
         }

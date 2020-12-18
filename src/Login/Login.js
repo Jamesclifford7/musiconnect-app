@@ -7,7 +7,6 @@ function Login(props) {
     return (
         <>
             <header className="landing-header">
-                {/* <Link to='/'><h2>Musiconnect</h2></Link> */}
                 <h2><Link to='/'>Musiconnect</Link></h2>
                 <Nav user={props.user} />
             </header>
