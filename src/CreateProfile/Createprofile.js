@@ -1,9 +1,8 @@
 import React from 'react'
-import './Editprofile.css'
 import avatar from '../Images/icon-user-default.png' 
 import Nav from '../Nav/Nav'
 
-class Editprofile extends React.Component {
+class Createprofile extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -21,7 +20,7 @@ class Editprofile extends React.Component {
     render() {
         return (
             <>
-            { 
+            {
             this.props.user.email
             ? <>
             <header>
@@ -36,25 +35,25 @@ class Editprofile extends React.Component {
             <main>
                 <section className="profile">
                     <div className="form-container">
-                        <h1>Edit Your Profile</h1>
+                        <h1>Create Your Profile To Start Searching</h1>
                         <img src={avatar} alt="avatar" /><br/>
-                        <button>Change Profile Image</button>
-                        <form onSubmit={event => this.props.handleUpdateProfile(event)}>
-                            {/*<label htmlFor="username">Username:</label>
+                        <button>Upload Profile Image</button>
+                        <form onSubmit={event => this.props.handleCreateProfile(event)}>
+                            <label htmlFor="username">*Username:</label>
                             {
                                 (this.props.user.username)
                                 ? <> <input id="username" type="text" /><br/></>
                                 : <> <input id="username" type="text" required/><br/></>
-                            } */}
-                            <label htmlFor="password">Password:</label>
-                            <input type="password" id="password" /><br/>
-                            <label htmlFor="name">Name:</label>
+                            }
+                            {/* <label htmlFor="password">Password:</label>
+                            <input type="password" id="password" /><br/> */}
+                            <label htmlFor="name">*Name:</label>
                             {
                                 (this.props.user.name)
                                 ? <> <input id="name" type="text" /><br/></>
                                 : <> <input id="name" type="text" required /><br/></>
                             }
-                            <label htmlFor="city">City:</label>
+                            <label htmlFor="city">*City:</label>
                             {
                                 (this.props.user.city)
                                 ? <><select id="city">
@@ -74,7 +73,7 @@ class Editprofile extends React.Component {
                                     <option value="5">Chicago</option>
                                 </select><br/><br/></>
                             }
-                            <span>I am a:</span><br/>
+                            <span>*I am a:</span><br/>
             
                             <div>
                                 <input type="checkbox" id="guitar" value="guitarist" name="instrument" />
@@ -106,21 +105,8 @@ class Editprofile extends React.Component {
                             <input id="spotify" type="text"/><br/><br/>
                             <label htmlFor="bio">Bio:</label><br/>
                             <textarea id="bio" ></textarea><br/>
-                            <button type="submit">Save</button>
+                            <button type="submit">Create Profile</button>
                         </form>
-                        {
-                            (!this.props.user.username || !this.props.user.name || !this.props.user.city)
-                            ? null
-                            : <button className="render-delete-button" onClick={event => this.renderDelete(event)}>Delete My Account</button>
-                        }
-                    </div>
-                    <div className="delete-container">
-                        {
-                            this.state.showDelete
-                            ? <><h3>Are you sure?</h3>
-                            <button onClick={event => this.props.handleDelete(event)}>Yes</button></>
-                            : null
-                        }
                     </div>
                 </section>
             </main>
@@ -128,11 +114,11 @@ class Editprofile extends React.Component {
                 <span>	&#169; Musiconnect 2020</span>
             </footer>
             </>
-            : <h1>Page not found</h1>
-            }
+            : <h1>Page Not Found</h1>
+        }    
         </>
         )
     }
 }
 
-export default Editprofile
+export default Createprofile

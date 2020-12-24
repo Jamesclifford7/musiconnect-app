@@ -19,9 +19,9 @@ function Profile(props) {
                         <div className="profile-header">
                             <div className="header-img-socials">
                                 <img src={props.user.img ? props.user.img : avatar} alt="avatar" />
-                                <a href="https://www.facebook.com/" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faFacebookF} /> </a>
-                                <a href="https://twitter.com/home" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faTwitter} /> </a>
-                                <a href="https://www.instagram.com/" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faInstagram} /> </a>
+                                <a href="https://www.facebook.com/" target="_blank" rel="noreferrer" alt="fb-icon"><FontAwesomeIcon icon={faFacebookF} /> </a>
+                                <a href="https://twitter.com/home" target="_blank" rel="noreferrer" alt="twitter-icon"><FontAwesomeIcon icon={faTwitter} /> </a>
+                                <a href="https://www.instagram.com/" target="_blank" rel="noreferrer" alt="ig-icon"><FontAwesomeIcon icon={faInstagram} /> </a>
                             </div>
                             <h3>Username: {props.user.username}</h3>
                             <p>Name: {props.user.name}</p>

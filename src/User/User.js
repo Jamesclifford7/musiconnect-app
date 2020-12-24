@@ -39,9 +39,9 @@ class User extends React.Component {
                                     <div className="profile-header">
                                         <div className="header-img-socials">
                                             <img src={user.img ? user.img : avatar} alt="avatar" />
-                                            <a href="https://www.facebook.com/" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faFacebookF} /> </a>
-                                            <a href="https://twitter.com/home" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faTwitter} /> </a>
-                                            <a href="https://www.instagram.com/" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faInstagram} /> </a>
+                                            <a href="https://www.facebook.com/" target="_blank" rel="noreferrer" alt="fb-icon"><FontAwesomeIcon icon={faFacebookF} /> </a>
+                                            <a href="https://twitter.com/home" target="_blank" rel="noreferrer" alt="twitter-icon"><FontAwesomeIcon icon={faTwitter} /> </a>
+                                            <a href="https://www.instagram.com/" target="_blank" rel="noreferrer" alt="ig-icon"><FontAwesomeIcon icon={faInstagram} /> </a>
                                         </div>
                                         <h3>{user.username}</h3>
                                         <p>{user.name}</p>
@@ -74,7 +74,9 @@ class User extends React.Component {
                             <span>	&#169; Musiconnect 2020</span>
                         </footer>
                     </>
-                        } 
+                        } else {
+                            return null
+                        }
                    
                 })
                 }

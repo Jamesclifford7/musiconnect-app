@@ -2,6 +2,7 @@ import React from 'react'
 import './Landing.css'
 import { Link } from 'react-router-dom'
 import Nav from '../Nav/Nav'
+import arrow from '../Images/right-arrow.png'
 
 function Landing(props) {
     return (
@@ -37,7 +38,10 @@ function Landing(props) {
                 <section className="signup">
                     <div className="flex-container">
                         <div className="flex-item-left">
-                            <h2>Sign up</h2>
+                            <h2>Sign Up</h2>
+                            <h3>Looking for a music community to call your own? Sign up here</h3>
+                            <img src={arrow} alt="arrow" />
+                            {/* <img src='https://lh3.googleusercontent.com/proxy/9u5N2Fg4EFRvDJxQo7E122qDIOh-DGIH_ysFuK4BTsi3BZ5bwP9xelA9nchaPWp2QOJFITRsFVGPl4DBK5p44jjZ6rrxYZNQ3aZSIjbOEdE4v1i5D99WCCm18_zEnCHXA8RVhovPiRDYoUyV2vGzlGEC-ItT0A_mNV4' alt="arrow"/> */}
                         </div>
                         <div className="flex-item-right">
                             <div className="content">

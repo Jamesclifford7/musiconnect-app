@@ -7,7 +7,7 @@ class Search extends React.Component {
         return (
             <>
              {
-                this.props.user.email
+                this.props.user.email // replace with token
                 ? <>
                 <header>
                     <button onClick={event => this.props.handleClearSearch(event)}><h2>Musiconnect</h2></button> 

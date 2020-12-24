@@ -99,12 +99,12 @@ main {
     margin: 0 auto;
     border: solid; 
     text-align: right; 
-    width: 25%;
+    width: 28%;
     padding: 10px;
 }
 
 .login-form label, .login-form input {
-    margin: 8px;
+    margin: 8px; 
 }
 
 .login-form button {
@@ -229,6 +229,12 @@ footer span {
     nav ul li {
         margin-right: 58px;
     }
+
+    .signup img {
+        height: 35px;
+        width: 35px;
+        margin-top: 250px;
+    } 
 
     .about-container, .login-form, .signup-form, .profile {
         height: 1100px; /* 915 */

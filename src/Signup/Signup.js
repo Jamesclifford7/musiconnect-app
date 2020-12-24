@@ -21,6 +21,11 @@ function Signup(props) {
                         <p>*Password must be at least 6 characters long, include one uppercase letter, and one number</p>
                         <button type="submit">Sign Up</button>
                     </form>
+                    {
+                        props.signupMessage
+                        ? <p>{props.signupMessage}</p>
+                        : null
+                    }
                 </div>
             </main>
             <footer>

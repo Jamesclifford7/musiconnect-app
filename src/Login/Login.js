@@ -14,7 +14,7 @@ function Login(props) {
                 <div className="login-form">
                     <h1>Login</h1>
                     <form onSubmit={event => props.handleLogin(event)}>
-                        <label htmlFor="username">Username:</label>
+                        <label htmlFor="username">Email or Username:</label>
                         <input id="username" type="text" required></input><br/>
                         <label htmlFor="password">Password:</label>
                         <input id="password" type="password" required ></input><br/>
