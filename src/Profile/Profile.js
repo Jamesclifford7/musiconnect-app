@@ -44,6 +44,6 @@ function Profile(props) {
             </footer>
         </>
     )
-}
+};
 
-export default Profile
+export default Profile;

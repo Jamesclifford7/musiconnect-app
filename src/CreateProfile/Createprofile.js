@@ -7,15 +7,15 @@ class Createprofile extends React.Component {
         super();
         this.state = {
             showDelete: false
-        }
-    }
+        };
+    };
 
     renderDelete = (event) => {
         event.preventDefault();
         this.setState(prevState => ({
             showDelete: !prevState.showDelete
-        }))
-    }
+        }));
+    };
 
     render() {
         return (
@@ -45,8 +45,6 @@ class Createprofile extends React.Component {
                                 ? <> <input id="username" type="text" /><br/></>
                                 : <> <input id="username" type="text" required/><br/></>
                             }
-                            {/* <label htmlFor="password">Password:</label>
-                            <input type="password" id="password" /><br/> */}
                             <label htmlFor="name">*Name:</label>
                             {
                                 (this.props.user.name)
@@ -119,6 +117,6 @@ class Createprofile extends React.Component {
         </>
         )
     }
-}
+};
 
-export default Createprofile
+export default Createprofile;

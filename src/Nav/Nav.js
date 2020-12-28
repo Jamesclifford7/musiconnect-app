@@ -4,18 +4,18 @@ import avatar from '../Images/icon-user-default.png'
 
 class Nav extends React.Component {
     constructor() {
-        super()
+        super();
         this.state = {
             showMenu: false
-        }
-    }
+        };
+    };
 
     toggleMenu = (event) => {
         event.preventDefault();
         this.setState(prevState =>({
             showMenu: !prevState.showMenu
-        }))
-    } 
+        }));
+    };
 
     render() {
         if (this.props.user.email) {
@@ -48,6 +48,6 @@ class Nav extends React.Component {
             
 
     }
-}
+};
 
-export default Nav
+export default Nav;

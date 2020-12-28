@@ -1,27 +1,27 @@
 import React from 'react';
 import './App.css';
-import { Route, withRouter } from 'react-router-dom'
-import Landing from './LandingPage/Landing'
-import Signup from './Signup/Signup'
-import Editprofile from './EditProfile/Editprofile'
-import Createprofile from './CreateProfile/Createprofile'
-import Search from './Search/Search'
-import Searchresults from './SearchResults/Searchresults'
-import User from './User/User'
-import Profile from './Profile/Profile'
-import About from './About/About'
-import Login from './Login/Login'
+import { Route, withRouter } from 'react-router-dom'; 
+import Landing from './LandingPage/Landing'; 
+import Signup from './Signup/Signup'; 
+import Editprofile from './EditProfile/Editprofile'; 
+import Createprofile from './CreateProfile/Createprofile'; 
+import Search from './Search/Search'; 
+import Searchresults from './SearchResults/Searchresults'; 
+import User from './User/User'; 
+import Profile from './Profile/Profile'; 
+import About from './About/About'; 
+import Login from './Login/Login'; 
 
 class App extends React.Component {
   constructor() {
-    super()
+    super();
     this.state = {
       user: {},
       searchResults: [], 
       searchValues: [], 
       signupMessage: ''
-    }
-  }
+    };
+  };
 
   // Login handler
 
@@ -29,7 +29,6 @@ class App extends React.Component {
     event.preventDefault(); 
     const username = String(event.target.username.value);
     const password = String(event.target.password.value);
-      // fetch(`http://localhost:8000/api/login`, {
       fetch('https://intense-thicket-43454.herokuapp.com/api/login', {
       method: "GET", 
       headers: {
@@ -50,17 +49,16 @@ class App extends React.Component {
       })
     })
     .then(() => {
-      
       if (this.state.user.username && this.state.user.name && this.state.user.city && this.state.user.instrument.length) {
         this.props.history.push('/search')
       } else {
-        this.props.history.push('/createprofile')
+        this.props.history.push('/createprofile') 
       } 
     })
     .catch(error => this.setState({
       user: 'not found'
     }))
-  }
+  };
 
   // Search handler
 
@@ -68,8 +66,6 @@ class App extends React.Component {
     event.preventDefault();
     const inst = event.target.instrument.value;
     const city = event.target.city.value;
-
-      // fetch('http://localhost:8000/api/search/', {
       fetch('https://intense-thicket-43454.herokuapp.com/api/search', {
       method: "GET", 
       headers: {
@@ -85,10 +81,13 @@ class App extends React.Component {
       return res.json()
     })
     .then(resJson => {
-      console.log(resJson)
       const userIndex = resJson.findIndex(user => user.id === this.state.user.id)
-      resJson.splice(userIndex, 1)
-      return resJson
+      if (userIndex === -1) {
+        return resJson
+      } else if (userIndex !== -1) {
+        resJson.splice(userIndex, 1); 
+        return resJson
+      }
     }) 
     .then(resJson => {
       this.setState({
@@ -106,20 +105,19 @@ class App extends React.Component {
     .then(() => {
       this.props.history.push('/results')
     })
-  }
+  };
 
   backButton = (event) => {
     event.preventDefault();
     this.props.history.goBack();
-  }
+  };
 
   // create profile handler
 
   handleCreateProfile = (event) => {
     event.preventDefault();
-    const id = this.state.user.id
+    const id = this.state.user.id;
     const newUsername = event.target.username.value; 
-    // const newPassword = event.target.password.value;
     const newName = event.target.name.value; 
     const newCity = parseInt(event.target.city.value); 
     const newInstagram = event.target.instagram.value; 
@@ -133,42 +131,41 @@ class App extends React.Component {
     let newInstrument = [];
     
     // changed instrument values to string due to postgres issue
-    const guitar = event.target.guitar.checked ? event.target.guitar.value : null
-    const bass = event.target.bass.checked ? event.target.bass.value : null
-    const drums = event.target.drums.checked ? event.target.drums.value : null
-    const piano = event.target.piano.checked ? event.target.piano.value : null
-    const singer = event.target.singer.checked ? event.target.singer.value : null
-    const producer = event.target.producer.checked ? event.target.producer.value : null
+    const guitar = event.target.guitar.checked ? event.target.guitar.value : null; 
+    const bass = event.target.bass.checked ? event.target.bass.value : null;
+    const drums = event.target.drums.checked ? event.target.drums.value : null;
+    const piano = event.target.piano.checked ? event.target.piano.value : null;
+    const singer = event.target.singer.checked ? event.target.singer.value : null;
+    const producer = event.target.producer.checked ? event.target.producer.value : null;
     
     
     if (guitar) {
       newInstrument.push(guitar)
-    } 
+    }; 
 
     if (bass) {
       newInstrument.push(bass)
-    } 
+    }; 
 
     if (drums) {
       newInstrument.push(drums)
-    }
+    };
 
     if (piano) {
       newInstrument.push(piano)
-    }
+    };
 
     if (singer) {
       newInstrument.push(singer)
-    }
+    };
 
     if (producer) {
       newInstrument.push(producer)
-    }
+    };
 
     if (!guitar && !bass && !drums && !piano && !singer && !producer) {
-      // newInstrument = [...this.state.user.instrument]
       alert('instrument is required')
-    }
+    };
 
     const updatedUser = {
       id: this.state.user.id, 
@@ -181,15 +178,6 @@ class App extends React.Component {
     } else {
       updatedUser.username = newUsername
     }; 
-
-    /*
-    if (!newPassword) {
-      updatedUser.password = this.state.user.password
-    } else if (newPassword.length > 6 && newPassword.match(/[A-Z]/) && newPassword.match(/\d+/g)) {
-      updatedUser.password = newPassword
-    } else {
-      alert('password must be six characters long, include one uppercase letter, and one number')
-    }; */
 
     if (!newName) {
       updatedUser.name = this.state.user.name
@@ -252,7 +240,6 @@ class App extends React.Component {
       updatedUser.bio = newBio
     };
 
-    // fetch(`http://localhost:8000/api/users/${id}`, {
     fetch(`https://intense-thicket-43454.herokuapp.com/api/users/${id}`, {
       method: "PATCH", 
       body: JSON.stringify(updatedUser), 
@@ -275,14 +262,13 @@ class App extends React.Component {
       this.props.history.push('/search')
     })
     .catch(error => console.log(error))
-  }
+  };
 
   // update profile handler
 
   handleUpdateProfile = (event) => {
     event.preventDefault();
-    const id = this.state.user.id
-    // const newUsername = event.target.username.value; 
+    const id = this.state.user.id;
     const newPassword = event.target.password.value;
     const newName = event.target.name.value; 
     const newCity = parseInt(event.target.city.value); 
@@ -297,41 +283,41 @@ class App extends React.Component {
     let newInstrument = [];
     
     // changed instrument values to string due to postgres issue
-    const guitar = event.target.guitar.checked ? event.target.guitar.value : null
-    const bass = event.target.bass.checked ? event.target.bass.value : null
-    const drums = event.target.drums.checked ? event.target.drums.value : null
-    const piano = event.target.piano.checked ? event.target.piano.value : null
-    const singer = event.target.singer.checked ? event.target.singer.value : null
-    const producer = event.target.producer.checked ? event.target.producer.value : null
+    const guitar = event.target.guitar.checked ? event.target.guitar.value : null;
+    const bass = event.target.bass.checked ? event.target.bass.value : null;
+    const drums = event.target.drums.checked ? event.target.drums.value : null;
+    const piano = event.target.piano.checked ? event.target.piano.value : null;
+    const singer = event.target.singer.checked ? event.target.singer.value : null;
+    const producer = event.target.producer.checked ? event.target.producer.value : null;
     
     
     if (guitar) {
       newInstrument.push(guitar)
-    } 
+    }; 
 
     if (bass) {
       newInstrument.push(bass)
-    } 
+    }; 
 
     if (drums) {
       newInstrument.push(drums)
-    }
+    };
 
     if (piano) {
       newInstrument.push(piano)
-    }
+    };
 
     if (singer) {
       newInstrument.push(singer)
-    }
+    };
 
     if (producer) {
       newInstrument.push(producer)
-    }
+    };
 
     if (!guitar && !bass && !drums && !piano && !singer && !producer) {
       newInstrument = [...this.state.user.instrument]
-    }
+    };
 
     const updatedUser = {
       id: this.state.user.id, 
@@ -339,13 +325,6 @@ class App extends React.Component {
       username: this.state.username,
       instrument: newInstrument
     };
-
-    /*
-    if (!newUsername) {
-      updatedUser.username = this.state.user.username
-    } else {
-      updatedUser.username = newUsername
-    }; */
 
     if (!newPassword) {
       updatedUser.password = this.state.user.password
@@ -415,7 +394,7 @@ class App extends React.Component {
     } else {
       updatedUser.bio = newBio
     };
-    // fetch(`http://localhost:8000/api/users/${id}`, {
+
     fetch(`https://intense-thicket-43454.herokuapp.com/api/users/${id}`, {
       method: "PATCH", 
       body: JSON.stringify(updatedUser), 
@@ -435,10 +414,10 @@ class App extends React.Component {
       this.setState({
         user: resJson
       }); 
-      this.props.history.push('/search')
+      this.props.history.push('/search');
     })
     .catch(error => console.log(error))
-  }
+  };
 
   // signup handler
  
@@ -466,7 +445,6 @@ class App extends React.Component {
 
 
     let hasError = false;
-    // fetch(`http://localhost:8000/api/users/`, {
     fetch('https://intense-thicket-43454.herokuapp.com/api/users/', {
         method: "POST", 
         body: JSON.stringify(newUser), 
@@ -474,56 +452,30 @@ class App extends React.Component {
           'content-type': 'application/json'
         }
       })
-        .then(res => {
-          console.log(res.body)
-          if (!res.ok) {
-            hasError = true; 
-            return res.text()
-          }
-          return res.json()
-        })
-        .then(data => {
-          if (hasError) {
-            throw new Error(data)
-          }
-          this.setState({
-            user: data
-          }); 
-          this.props.history.push('/createprofile') // change to /createprofile 
-        })
-        .catch(error => {
-          error = `${error}`.split(" ").splice(1, 7).join(" ");
-          this.setState({
-            signupMessage: `Oops! ${error}`
-          }) 
-        })
-        // .catch(error => alert(error))
-
-      /*
-      //fetch('https://intense-thicket-43454.herokuapp.com/api/users/', {
-      fetch('http://localhost:8000/api/users/', {  
-        method: "POST", 
-        body: JSON.stringify(newUser), 
-        headers: {
-          'content-type': 'application/json'
+      .then(res => {
+        console.log(res.body)
+        if (!res.ok) {
+          hasError = true; 
+          return res.text()
         }
+        return res.json()
       })
-        .then(res => {
-          console.log(res.body)
-          if (!res.ok) {
-            throw new Error()
-          }
-          return res.json()
-        })
-        .then(resJson => {
-          this.setState({
-            user: resJson
-          }); 
-          this.props.history.push('/editprofile')
-        })
-        .catch(error => console.log(error))
-        // .catch(error => alert('password must be at least 6 characters and include one uppercase letter and one number')) */
-  }
+      .then(data => {
+        if (hasError) {
+          throw new Error(data)
+        }
+        this.setState({
+          user: data
+        }); 
+        this.props.history.push('/createprofile'); 
+      })
+      .catch(error => {
+        error = `${error}`.split(" ").splice(1, 7).join(" ");
+        this.setState({
+          signupMessage: `Oops! ${error}`
+        }) 
+      })
+  };
 
   handleClearSearch = (event) => {
     event.preventDefault();
@@ -531,8 +483,8 @@ class App extends React.Component {
       searchResults: [], 
       searchValues: []
     });
-    this.props.history.push('/search')
-  }
+    this.props.history.push('/search');
+  };
 
   handleLogout = (event) => {
     event.preventDefault();
@@ -541,9 +493,9 @@ class App extends React.Component {
       searchResults: [], 
       searchValues: [], 
       signupMessage: ''
-    })
-    this.props.history.push('/')
-  }
+    });
+    this.props.history.push('/');
+  };
 
   // Delete account handler
 
@@ -569,7 +521,7 @@ class App extends React.Component {
       this.props.history.push('/')
     })
     .catch(error => console.log(error))
-  }
+  };
 
   render() {
     const searchResults = this.state.searchResults;
@@ -670,7 +622,7 @@ class App extends React.Component {
       </div>
     )
   }
-}
+}; 
 
 export default withRouter(App);
 

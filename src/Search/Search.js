@@ -7,7 +7,7 @@ class Search extends React.Component {
         return (
             <>
              {
-                this.props.user.email // replace with token
+                this.props.user.email 
                 ? <>
                 <header>
                     <button onClick={event => this.props.handleClearSearch(event)}><h2>Musiconnect</h2></button> 
@@ -45,12 +45,12 @@ class Search extends React.Component {
                     <span>	&#169; Musiconnect 2020</span>
                 </footer> 
             </>
-            : <h1>Page not found</h1> // add button to take user back to login?
+            : <h1>Page not found</h1> 
              }
             </>
         )
     }
-}
+};
 
-export default Search
+export default Search;
 

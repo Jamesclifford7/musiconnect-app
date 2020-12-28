@@ -20,6 +20,9 @@ function Login(props) {
                         <input id="password" type="password" required ></input><br/>
                         <button type="submit">Log In</button>
                     </form>
+                    <p>Demo username: ziggystardust7 <br/><br/>
+                       Demo password: Heroes31 
+                    </p>
                     {
                         props.user === 'not found'
                         ? <p>Oops! Username/password not found</p>
@@ -32,6 +35,6 @@ function Login(props) {
             </footer>
         </>
     )
-} 
+};
 
-export default Login
+export default Login;

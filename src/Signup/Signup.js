@@ -33,6 +33,6 @@ function Signup(props) {
             </footer>
         </>
     )
-} 
+};
 
-export default Signup
+export default Signup;

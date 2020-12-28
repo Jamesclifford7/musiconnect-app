@@ -68,6 +68,6 @@ class Searchresults extends React.Component {
             </>
         )
     }
-}
+};
 
-export default Searchresults
+export default Searchresults;

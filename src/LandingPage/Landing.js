@@ -41,7 +41,6 @@ function Landing(props) {
                             <h2>Sign Up</h2>
                             <h3>Looking for a music community to call your own? Sign up here</h3>
                             <img src={arrow} alt="arrow" />
-                            {/* <img src='https://lh3.googleusercontent.com/proxy/9u5N2Fg4EFRvDJxQo7E122qDIOh-DGIH_ysFuK4BTsi3BZ5bwP9xelA9nchaPWp2QOJFITRsFVGPl4DBK5p44jjZ6rrxYZNQ3aZSIjbOEdE4v1i5D99WCCm18_zEnCHXA8RVhovPiRDYoUyV2vGzlGEC-ItT0A_mNV4' alt="arrow"/> */}
                         </div>
                         <div className="flex-item-right">
                             <div className="content">
@@ -59,6 +58,6 @@ function Landing(props) {
             
         </>
     )
-}
+};
 
-export default Landing
+export default Landing;

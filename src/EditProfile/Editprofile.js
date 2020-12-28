@@ -8,15 +8,15 @@ class Editprofile extends React.Component {
         super();
         this.state = {
             showDelete: false
-        }
-    }
+        };
+    };
 
     renderDelete = (event) => {
         event.preventDefault();
         this.setState(prevState => ({
             showDelete: !prevState.showDelete
-        }))
-    }
+        }));
+    };
 
     render() {
         return (
@@ -40,12 +40,6 @@ class Editprofile extends React.Component {
                         <img src={avatar} alt="avatar" /><br/>
                         <button>Change Profile Image</button>
                         <form onSubmit={event => this.props.handleUpdateProfile(event)}>
-                            {/*<label htmlFor="username">Username:</label>
-                            {
-                                (this.props.user.username)
-                                ? <> <input id="username" type="text" /><br/></>
-                                : <> <input id="username" type="text" required/><br/></>
-                            } */}
                             <label htmlFor="password">Password:</label>
                             <input type="password" id="password" /><br/>
                             <label htmlFor="name">Name:</label>
@@ -133,6 +127,6 @@ class Editprofile extends React.Component {
         </>
         )
     }
-}
+};
 
-export default Editprofile
+export default Editprofile;

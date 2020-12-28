@@ -10,15 +10,15 @@ class User extends React.Component {
         super(); 
         this.state = {
             showEmail: false
-        }
-    }
+        };
+    };
 
     handleMessageButton = (event) => {
         event.preventDefault(); 
         this.setState({
             showEmail: true
-        })
-    }
+        });
+    };
 
     render() {
         return (
@@ -83,8 +83,8 @@ class User extends React.Component {
             </>
         )
     }
-}
+};
 
 
 
-export default User
+export default User;
