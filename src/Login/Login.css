@@ -107,6 +107,10 @@ main {
     margin: 8px; 
 }
 
+.login-form .password-break {
+    display: none;
+}
+
 .login-form button {
     margin-right: 6px;
 }
@@ -200,6 +204,10 @@ footer span {
     .login-form form {
         width: 80%;
         text-align: center;
+    }
+
+    .login-form .password-break {
+        display: inherit;
     }
 
     .login-form button {
