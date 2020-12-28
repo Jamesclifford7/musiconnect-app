@@ -21,7 +21,7 @@ function Login(props) {
                         <button type="submit">Log In</button>
                     </form>
                     <p>Demo username: ziggystardust7 <br/><br/>
-                       Demo password: Heroes31 
+                       Demo password: Heroes31 <br /><br />
                     </p>
                     {
                         props.user === 'not found'
