@@ -199,6 +199,7 @@ footer span {
     
     .login-form form {
         width: 80%;
+        text-align: center;
     }
 
     .login-form button {
